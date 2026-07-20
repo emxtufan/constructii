@@ -23,6 +23,12 @@ const features = [
     title: 'Management de proiect',
     desc: 'Planificam bugetul, calendarul, achizitiile si executia. Clientul primeste un singur punct de contact, informatii clare si control real asupra proiectului.',
   },
+  {
+    icon: '/icons/features/controlled-outcomes.svg',
+    alt: 'Management de proiect',
+    title: 'Management de proiect',
+    desc: 'Planificam bugetul, calendarul, achizitiile si executia. Clientul primeste un singur punct de contact, informatii clare si control real asupra proiectului.',
+  },
 ];
 
 export default function FeaturesSection() {

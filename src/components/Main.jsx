@@ -1,6 +1,8 @@
 import Hero from './Hero.jsx';
 import FlowSection from './FlowSection.jsx';
 import FeaturesSection from './FeaturesSection.jsx';
+import LogosSection from './LogosSection.jsx';
+import ScrollStackSection from './ScrollStackSection.jsx';
 import StandardsSection from './StandardsSection.jsx';
 import FaqSection from './FaqSection.jsx';
 import CtaSection from './CtaSection.jsx';
@@ -12,10 +14,13 @@ export default function Main() {
     <main data-taxi>
       <div data-taxi-view="home">
         <div className="top">
+          
           <Hero />
           <div className="hero-spacer"></div>
           <FlowSection />
           <FeaturesSection />
+          <LogosSection />
+          {/* <ScrollStackSection /> */}
           <StandardsSection />
           <FaqSection />
           <CtaSection />

@@ -1,27 +1,11 @@
-// The intro loader. Its cube ids (cube_01..08, arrow, arrow-mask-line, loader__draw)
-// are animated by the compiled engine, so every id/class is preserved verbatim.
+// The intro loader keeps an invisible arrow-mask-line because the compiled engine
+// uses its animationend event to advanc e loader timing.
 export default function Loader() {
   return (
     <div id="loader" className="flx-center">
-      <svg width="96" height="96" viewBox="0 0 96 96" fill="none" className="loader__logo" overflow="visible">
-        <defs>
-          <mask id="arrow-mask">
-            <path className="arrow-mask-line" d="M14.0002 13.9917L47.0002 46.9917" stroke="white" strokeWidth="16.1"></path>
-            <path className="arrow-mask-line" d="M14.0002 81.9917L47.0002 48.9917" stroke="white" strokeWidth="16.1"></path>
-            <path className="arrow-mask-line" d="M0 47.9917H56" stroke="white" strokeWidth="16.1"></path>
-          </mask>
-        </defs>
-        <g id="block_full" fill="#C9A876">
-          <path id="cube_05" d="M39.9963 96.0002H55.9926V80.0039H39.9963V96.0002Z" fill="#C9A876"></path>
-          <path id="cube_04" d="M76.2787 87.59L64.9673 76.2787L76.2787 64.9673L87.59 76.2787L76.2787 87.59Z" fill="#C9A876"></path>
-          <path id="cube_03" d="M80.0039 55.9926V39.9963H96.0001V55.9926H80.0039Z" fill="#C9A876"></path>
-          <path id="cube_02" d="M76.2899 8.39893L87.6013 19.7103L76.2899 31.0217L64.9785 19.7103L76.2899 8.39893Z" fill="#C9A876"></path>
-          <path id="cube_01" d="M40.0076 0H56.0038V15.9962H40.0076V0Z" fill="#C9A876"></path>
-          <path id="cube_06" d="M19.7216 87.59L31.033 76.2787L19.7216 64.9673L8.41019 76.2787L19.7216 87.59Z" fill="#C9A876"></path>
-          <path id="cube_07" d="M15.9963 55.9926V39.9963H9.91821e-05V55.9926H15.9963Z" fill="#C9A876"></path>
-          <path id="cube_08" d="M19.7103 8.39893L8.39896 19.7103L19.7103 31.0217L31.0217 19.7103L19.7103 8.39893Z" fill="#C9A876"></path>
-        </g>
-        <path id="arrow" d="M53.6557 53.6557C56.7827 50.5287 56.7827 45.4713 53.6557 42.3443V42.3556L19.7103 8.41016L13.7046 14.4158L8.39887 19.7215L28.6736 40.0188H0V56.015H28.6849L19.7103 64.9784L8.39887 76.2897L19.7103 87.6011L53.6557 53.6557Z" fill="#C9A876" mask="url(#arrow-mask)"></path>
+      <svg width="585" height="360" viewBox="0 0 585 360" fill="none" className="loader__logo loader__brand-logo" overflow="visible">
+        <image href="/img/greentech-logo.svg" width="585" height="360" preserveAspectRatio="xMidYMid meet" />
+        <path className="arrow-mask-line" d="M0 0H60" stroke="transparent" strokeWidth="1"></path>
       </svg>
       <svg className="loader__ellipse loader__ellipse--outer" viewBox="0 0 1500 800">
         <defs>

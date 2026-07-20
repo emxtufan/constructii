@@ -1,40 +1,33 @@
 # Dependencies
 node_modules/
 
-# Production builds
+# Build output
 dist/
-dist-ssr/
-
-# Environment variables
-.env
-.env.*
-!.env.example
+build/
 
 # Logs
-logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Test coverage
-coverage/
+# Environment files
+.env
+.env.*
+!.env.example
 
-# Local tooling and editor settings
-.claude/
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Operating system files
+# Local editor and OS files
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
 
-# Vite cache
+# Vite / tooling cache
 .vite/
+coverage/
 
+# Local temporary files
+*.local
+vite-dev.log
+vite-dev.err.log

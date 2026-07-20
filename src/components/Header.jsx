@@ -1,16 +1,13 @@
-import BrandLogo from './BrandLogo.jsx';
-
 export default function Header() {
   return (
-    <header>
-      <nav className="header__nav-left">
+    <header className="!bg-white shadow-md">
+      <nav className="header__nav-left ">
         <a href="#servicii">Servicii</a>
         <a href="#proiecte">Proiecte</a>
       </nav>
       <div className="header__logo">
-        <a href="/" className="header__logo_link" aria-label="Green Tech Real Estate">
-          <BrandLogo fill="#0B0B0A" />
-          <strong style={{ marginLeft: '10px', whiteSpace: 'nowrap', fontSize: '14px' }}>GREEN TECH REAL ESTATE</strong>
+        <a href="/" className="header__logo_link site-logo-link" aria-label="Green Tech Real Estate">
+          <img src="/img/greentech-logo.svg" alt="Greentech Real Estate" className="site-logo-img" />
         </a>
       </div>
       <nav className="header__nav-right">
@@ -34,9 +31,8 @@ export default function Header() {
         <div className="mobile-nav__panel-bg"></div>
         <div className="mobile-nav__panel">
           <div className="mobile-nav__header">
-            <a href="/" className="mobile-nav__logo">
-              <BrandLogo fill="#0B0B0A" />
-              <strong className="brand-name">GREEN TECH REAL ESTATE</strong>
+            <a href="/" className="mobile-nav__logo site-logo-link">
+              <img src="/img/greentech-logo.svg" alt="Greentech Real Estate" className="site-logo-img" />
             </a>
             <button className="mobile-nav__close" type="button" aria-label="Close menu">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
