@@ -1,0 +1,33 @@
+import { useEffect } from 'react';
+import Header from './components/Header.jsx';
+import Main from './components/Main.jsx';
+import Footer from './components/Footer.jsx';
+import Loader from './components/Loader.jsx';
+
+// The 3D scene, smooth-scroll, page transitions, FAQ accordion, mobile menu and loader
+// animation all live in the original compiled engine (CommonScripts -> renderer + vendor).
+// We render the real DOM structure it expects (same classes/ids) and boot that engine
+// unchanged — the section markup is ours, the engine stays 1:1.
+const SCENE_SRC = '/_astro/CommonScripts.astro_astro_type_script_index_0_lang.CZTi642d.js';
+
+export default function App() {
+  useEffect(() => {
+    if (window.__vectrSceneBooted) return; // guard against HMR / double-mount
+    window.__vectrSceneBooted = true;
+    const s = document.createElement('script');
+    s.type = 'module';
+    s.src = SCENE_SRC;
+    document.body.appendChild(s);
+  }, []);
+
+  return (
+    <>
+      <div className="transition-pages"></div>
+      <div className="mobile-nav__overlay"></div>
+      <Header />
+      <Main />
+      <Footer />
+      <Loader />
+    </>
+  );
+}
