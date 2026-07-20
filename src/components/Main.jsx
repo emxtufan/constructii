@@ -19,7 +19,7 @@ export default function Main() {
           <div className="hero-spacer"></div>
           <FlowSection />
           <FeaturesSection />
-          <LogosSection />
+          {/* <LogosSection /> */}
           {/* <ScrollStackSection /> */}
           <StandardsSection />
           <FaqSection />

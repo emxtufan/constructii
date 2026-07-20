@@ -3,6 +3,7 @@ import Header from './components/Header.jsx';
 import Main from './components/Main.jsx';
 import Footer from './components/Footer.jsx';
 import Loader from './components/Loader.jsx';
+import SmoothScroll from './components/effects/SmoothScroll.jsx';
 
 // The 3D scene, smooth-scroll, page transitions, FAQ accordion, mobile menu and loader
 // animation all live in the original compiled engine (CommonScripts -> renderer + vendor).
@@ -33,6 +34,7 @@ export default function App() {
 
   return (
     <>
+      <SmoothScroll />
       <div className="transition-pages"></div>
       <div className="mobile-nav__overlay"></div>
       <Header  />
