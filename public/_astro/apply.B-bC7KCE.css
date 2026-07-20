@@ -3914,7 +3914,8 @@ html.preload .mobile-nav__overlay {
 .standards__container {
     display: flex;
     align-items: center;
-    gap: 134px
+    gap: 134px;
+    justify-content: center;
 }
 
 .standards__image {
