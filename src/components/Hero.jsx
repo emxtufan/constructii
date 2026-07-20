@@ -15,18 +15,17 @@ export default function Hero() {
       <div className="hero__content">
         <h1 className="hero__title" style={introTransform}>
           <BlurText
-            text="Construim verde."
+            text="Ridicăm construcții. Construim încredere."
             delay={200}
             animateBy="words"
             direction="top"
             triggerSelector=".hero"
             className="hero-blur-text"
           />
-          <span>Traim mai bine.</span>
         </h1>
         <p className="hero__subtitle" style={introTransform}>
           <span>De la idee la cheie.<br className="sp" /></span>{' '}
-          <span>Green Tech Real Estate creeaza locuinte si spatii moderne, eficiente energetic, construite responsabil pentru oameni si comunitati.</span>
+          <span>GreenTech Real Estate creeaza locuinte si spatii moderne, eficiente energetic, construite responsabil pentru oameni si comunitati.</span>
         </p>
       </div>
       <div className="hero__scroll-btn">
