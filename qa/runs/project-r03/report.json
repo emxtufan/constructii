@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "run": "project-r03",
+  "checks": [
+    {
+      "id": "accessibility",
+      "status": "NOT_RUN",
+      "note": "Partial checks are documented; complete planned scope and authentic project content are not yet available.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    },
+    {
+      "id": "build",
+      "status": "PASS",
+      "note": "Direct exec_command npm.cmd run build succeeded; verbatim actual tool result retained. Python wrapper failures remain in earlier runs.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/build-exec.json",
+          "sha256": "f44f5b4bf67dbf44af89a6a44a3f9e08e5bcc687e15e28d8fdfc4d6c33a29076"
+        }
+      ]
+    },
+    {
+      "id": "console",
+      "status": "PASS",
+      "note": "No browser console errors observed; pre-existing Three.js deprecation warning remains.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    },
+    {
+      "id": "interaction",
+      "status": "NOT_RUN",
+      "note": "Partial checks are documented; complete planned scope and authentic project content are not yet available.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    },
+    {
+      "id": "performance",
+      "status": "NOT_RUN",
+      "note": "Partial checks are documented; complete planned scope and authentic project content are not yet available.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    },
+    {
+      "id": "responsive",
+      "status": "NOT_RUN",
+      "note": "Partial checks are documented; complete planned scope and authentic project content are not yet available.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    },
+    {
+      "id": "content-integrity",
+      "status": "NOT_RUN",
+      "note": "Partial checks are documented; complete planned scope and authentic project content are not yet available.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    }
+  ],
+  "visual_reviews": [
+    {
+      "case_id": "home-mobile",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "Codex",
+      "note": "Representative real viewport images inspected in conversation; complete planned PNG coverage for all sections was not collected.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    },
+    {
+      "case_id": "home-tablet",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "Codex",
+      "note": "Representative real viewport images inspected in conversation; complete planned PNG coverage for all sections was not collected.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    },
+    {
+      "case_id": "home-desktop",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "Codex",
+      "note": "Representative real viewport images inspected in conversation; complete planned PNG coverage for all sections was not collected.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "F01",
+      "section": "comparison",
+      "severity": "minor",
+      "observed": "Missing-photo state invites dragging a comparison handle that is not available.",
+      "status": "RESOLVED",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r02/logs/comparison-review.md",
+          "sha256": "4f60c38d2b4f9adb6a45f5b9aeae7e2fef2657dc9a70778e01e33ee5ba7fdd5e"
+        }
+      ],
+      "resolution_evidence": [
+        {
+          "path": "qa/runs/project-r03/logs/browser-review.md",
+          "sha256": "34296c5d4ef9537df7aa324d2e3ec78c41a35be22f69ffa9089445416ec30513"
+        }
+      ]
+    }
+  ]
+}

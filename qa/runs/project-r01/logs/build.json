@@ -1,0 +1,10 @@
+{
+  "command": [
+    "npm.cmd",
+    "run",
+    "build"
+  ],
+  "exit_code": 1,
+  "finished_at": "2026-09-07T12:48:20.887184+00:00",
+  "source_unchanged": true
+}

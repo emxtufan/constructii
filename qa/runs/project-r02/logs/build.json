@@ -1,0 +1,11 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-Command",
+    "npm.cmd run build"
+  ],
+  "exit_code": 1,
+  "finished_at": "2026-09-07T12:49:25.526716+00:00",
+  "source_unchanged": true
+}

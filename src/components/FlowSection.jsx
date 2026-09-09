@@ -1,31 +1,31 @@
 const steps = [
   {
     n: '01',
-    title: 'Consultanta si concept',
+    title: 'Prima discuție',
     body: (
-      <>Incepem cu obiectivele, terenul si bugetul tau.<br />Analizam potentialul proiectului si construim un plan clar, realist si adaptat stilului tau de viata sau strategiei de investitie.</>
+      <>Începem cu ce vrei să construiești.<br />Discutăm despre teren, suprafață, buget și stadiul proiectului. Clarificăm lucrările de care ai nevoie și informațiile necesare pentru o estimare.</>
     ),
   },
   {
     n: '02',
-    title: 'Proiectare inteligenta',
-    body: 'Arhitectura, structura si instalatiile sunt coordonate intr-un singur proces. Optimizam lumina naturala, consumul de energie, materialele si fiecare metru patrat.',
+    title: 'Proiectare și planificare',
+    body: 'Punem în ordine documentația, soluțiile tehnice și succesiunea lucrărilor. Stabilim împreună scopul colaborării, responsabilitățile și etapele înainte de începerea execuției.',
   },
   {
     n: '03',
-    title: 'Constructie controlata',
-    body: 'Coordonam echipele, furnizorii, materialele si etapele de santier. Urmarim calitatea, costurile si calendarul prin verificari constante si raportare transparenta.',
+    title: 'Execuție și coordonare',
+    body: 'Coordonăm echipele, materialele și lucrările din șantier. Urmărim execuția față de proiect și discutăm progresul, deciziile necesare și eventualele schimbări de cost sau calendar.',
   },
   {
     n: '04',
-    title: 'Predare si suport',
-    body: 'Predam proiectul complet, verificat si documentat. Oferim instructiuni de utilizare, garantie si suport dupa finalizare, pentru o investitie valoroasa in timp.',
+    title: 'Verificare și predare',
+    body: 'Parcurgem lucrările executate și documentele aferente împreună cu clientul. Clarificăm observațiile, pașii de recepție și condițiile de utilizare și întreținere aplicabile proiectului.',
   },
 ];
 
 export default function FlowSection() {
   return (
-    <section className="flow">
+    <section className="flow" id="proces">
       <div className="flow__wrapper">
         <div className="flow__steps">
           {steps.map((s, i) => (

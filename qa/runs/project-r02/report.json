@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "run": "project-r02",
+  "checks": [
+    {
+      "id": "accessibility",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "build",
+      "status": "FAIL",
+      "note": "Recorded command result; inspect the log.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r02/logs/build.txt",
+          "sha256": "7cf6de522da1b3486257ed11ae7b063be4a5ed247380bfb526aa83d6490343f9"
+        },
+        {
+          "path": "qa/runs/project-r02/logs/build.json",
+          "sha256": "4c3fae109f954a0290ee9cbf4e3a3fb451167cda79eb8598b1cc7ea949a67f60"
+        }
+      ]
+    },
+    {
+      "id": "console",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "interaction",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "performance",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "responsive",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "content-integrity",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    }
+  ],
+  "visual_reviews": [
+    {
+      "case_id": "home-mobile",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "case_id": "home-tablet",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "case_id": "home-desktop",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "",
+      "note": "",
+      "evidence": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "F01",
+      "section": "comparison",
+      "severity": "minor",
+      "observed": "Missing-photo state invites dragging a comparison handle that is not available.",
+      "status": "OPEN",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r02/logs/comparison-review.md",
+          "sha256": "4f60c38d2b4f9adb6a45f5b9aeae7e2fef2657dc9a70778e01e33ee5ba7fdd5e"
+        }
+      ]
+    }
+  ]
+}

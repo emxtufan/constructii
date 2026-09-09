@@ -1,0 +1,234 @@
+{
+  "sections": [
+    {
+      "id": "navbar",
+      "route": "/",
+      "selector": ".gt-header",
+      "component": "src/components/Header.jsx",
+      "purpose": "Navigate to the real project, company process, journal and quote.",
+      "responsive": "Mobile modal; desktop compact row.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "hero",
+      "route": "/",
+      "selector": "#acasa",
+      "component": "src/components/Hero.jsx",
+      "purpose": "Retain the original brand and 3D introduction.",
+      "responsive": "Existing mobile scene and heading treatment.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "process",
+      "route": "/",
+      "selector": "#proces",
+      "component": "src/components/FlowSection.jsx",
+      "purpose": "Building Process: first discussion through handover.",
+      "responsive": "Preserve compiled four-stage scroll architecture.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "services",
+      "route": "/",
+      "selector": "#servicii",
+      "component": "src/components/FeaturesSection.jsx",
+      "purpose": "State the existing company services.",
+      "responsive": "Existing stacked service layout on phones.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "project-intro",
+      "route": "/",
+      "selector": "#proiecte",
+      "component": "src/components/StandardsSection.jsx",
+      "purpose": "Introduce the one real project or explicitly pending project documentation.",
+      "responsive": "Image and introduction stack.",
+      "states": [
+        "default",
+        "reduced-motion",
+        "missing-content",
+        "verified-content"
+      ]
+    },
+    {
+      "id": "ground-to-home",
+      "route": "/",
+      "selector": "#ground-to-home",
+      "component": "src/components/ProjectStory.jsx",
+      "purpose": "Stage storytelling with confirmed actual/current/future states and real images.",
+      "responsive": "Scrollable stage buttons plus full-width scene and text.",
+      "states": [
+        "default",
+        "reduced-motion",
+        "missing-content",
+        "verified-content"
+      ]
+    },
+    {
+      "id": "current-progress",
+      "route": "/",
+      "selector": "#current-progress",
+      "component": "src/components/ProjectStory.jsx",
+      "purpose": "Verified current stage and visual progress; unknown values stay unknown.",
+      "responsive": "Stack image and progress summary.",
+      "states": [
+        "default",
+        "reduced-motion",
+        "missing-content",
+        "verified-content"
+      ]
+    },
+    {
+      "id": "materials",
+      "route": "/",
+      "selector": "#materials-craft",
+      "component": "src/components/CraftSections.jsx",
+      "purpose": "Materials and workmanship, separating company approach from project specifications.",
+      "responsive": "Asymmetric spread stacks with readable captions.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "gallery",
+      "route": "/",
+      "selector": "#behind-build",
+      "component": "src/components/CraftSections.jsx",
+      "purpose": "Editorial site-photo gallery with accessible enlarged view.",
+      "responsive": "Single column; native modal and keyboard controls.",
+      "states": [
+        "default",
+        "reduced-motion",
+        "missing-content",
+        "verified-content"
+      ]
+    },
+    {
+      "id": "engineering",
+      "route": "/",
+      "selector": "#engineering-precision",
+      "component": "src/components/CraftSections.jsx",
+      "purpose": "Explain planning and execution control with conceptual blueprint graphics.",
+      "responsive": "Blueprint stacks above notes; no tiny technical text.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "comparison",
+      "route": "/",
+      "selector": "#before-current",
+      "component": "src/components/ProjectStory.jsx",
+      "purpose": "Compare verified before/current views with native range control.",
+      "responsive": "Touch and keyboard range; fixed image aspect ratio.",
+      "states": [
+        "default",
+        "reduced-motion",
+        "missing-content",
+        "verified-content"
+      ]
+    },
+    {
+      "id": "approach",
+      "route": "/",
+      "selector": "#de-ce-noi",
+      "component": "src/components/WhyUsSection.jsx",
+      "purpose": "Precision, transparency, quality, responsibility and craftsmanship.",
+      "responsive": "Existing responsive rows and finite entrances.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "next",
+      "route": "/",
+      "selector": "#what-comes-next",
+      "component": "src/components/ProjectUpdates.jsx",
+      "purpose": "Show only confirmed upcoming phases.",
+      "responsive": "Vertical sequence; no horizontal overflow.",
+      "states": [
+        "default",
+        "reduced-motion",
+        "missing-content",
+        "verified-content"
+      ]
+    },
+    {
+      "id": "journal",
+      "route": "/",
+      "selector": "#project-journal",
+      "component": "src/components/ProjectUpdates.jsx",
+      "purpose": "Maintain dated verified project updates in a central data file.",
+      "responsive": "Chronological cards stack, expandable content remains native.",
+      "states": [
+        "default",
+        "reduced-motion",
+        "missing-content",
+        "verified-content"
+      ]
+    },
+    {
+      "id": "faq",
+      "route": "/",
+      "selector": "#intrebari",
+      "component": "src/components/FaqSection.jsx",
+      "purpose": "Answer client questions about scope, estimates, duration, materials and collaboration.",
+      "responsive": "Native details independent of compiled engine.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "quote",
+      "route": "/",
+      "selector": "#contact",
+      "component": "src/components/CtaSection.jsx",
+      "purpose": "Collect requested fields and prepare a real reviewable email request without fake delivery.",
+      "responsive": "Single-column fields, visible focus, summary and copy/email fallback.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "statement",
+      "route": "/",
+      "selector": "#final-statement",
+      "component": "src/components/FinalStatement.jsx",
+      "purpose": "Deliver the exact requested closing brand statement.",
+      "responsive": "Large typography reflows without clipping.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    },
+    {
+      "id": "footer",
+      "route": "/",
+      "selector": ".footer",
+      "component": "src/components/Footer.jsx",
+      "purpose": "Retain brand and navigational closure.",
+      "responsive": "Existing responsive footer.",
+      "states": [
+        "default",
+        "reduced-motion"
+      ]
+    }
+  ]
+}

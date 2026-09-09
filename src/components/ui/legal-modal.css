@@ -1,0 +1,67 @@
+.gt-legal-modal {
+  width: min(760px, calc(100% - 40px));
+  max-width: none;
+  max-height: calc(100vh - 48px);
+  max-height: min(840px, calc(100dvh - 48px));
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #d4d5c8;
+  border-radius: 14px;
+  background: #f1efe8;
+  color: #263126;
+  box-shadow: 0 32px 100px #0005;
+  font-family: inherit;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+.gt-legal-modal[open] { display: flex; flex-direction: column; animation: gt-legal-enter .24s ease-out both; }
+.gt-legal-modal::backdrop { background: #0c120dd9; }
+.gt-legal-modal *, .gt-legal-modal *::before, .gt-legal-modal *::after { box-sizing: border-box; }
+.gt-legal-modal__header { display: flex; align-items: flex-start; justify-content: space-between; flex-shrink: 0; gap: 20px; padding: 30px 32px 24px; border-bottom: 1px solid #27332525; }
+.gt-legal-modal__header > div { min-width: 0; }
+.gt-legal-modal__eyebrow { margin: 0 0 14px; color: #606857; font-size: 10px; font-weight: 500; line-height: 1.6; letter-spacing: .1em; text-transform: uppercase; }
+.gt-legal-modal h2 { margin: 0; color: #263126; font-size: clamp(26px, 3vw, 36px); font-weight: 500; line-height: 1.12; letter-spacing: -.04em; overflow-wrap: anywhere; }
+.gt-legal-modal h2:focus { outline: none; }
+.gt-legal-modal__close { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border: 1px solid #27332530; border-radius: 50%; background: transparent; color: #263126; cursor: pointer; }
+.gt-legal-modal__close svg { width: 20px; height: 20px; }
+.gt-legal-modal__body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 26px 32px 32px; scrollbar-width: thin; scrollbar-color: #a0a78e transparent; }
+.gt-legal-modal__intro { margin: 0 0 28px; color: #3d4838; font-size: 16px; line-height: 1.65; }
+.gt-legal-modal__section + .gt-legal-modal__section { margin-top: 26px; }
+.gt-legal-modal h3 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 10px; color: #263126; font-size: 17px; font-weight: 500; line-height: 1.4; letter-spacing: -.015em; }
+.gt-legal-modal h3 > span { flex-shrink: 0; color: #727857; font-size: 10px; letter-spacing: .05em; }
+.gt-legal-modal__section p, .gt-legal-modal__section li { color: #4e5748; font-size: 14px; font-weight: 400; line-height: 1.75; overflow-wrap: anywhere; }
+.gt-legal-modal__section p { margin: 0; }
+.gt-legal-modal__section p + p { margin-top: 10px; }
+.gt-legal-modal__section ul { margin: 10px 0 0; padding-left: 20px; }
+.gt-legal-modal__section li + li { margin-top: 6px; }
+.gt-legal-modal__section li::marker { color: #737b54; }
+.gt-legal-modal__sources { margin-top: 32px; padding-top: 20px; border-top: 1px solid #27332525; }
+.gt-legal-modal__sources > p { margin: 0 0 8px; color: #606857; font-size: 10px; line-height: 1.5; letter-spacing: .09em; text-transform: uppercase; }
+.gt-legal-modal__sources a { display: flex; align-items: center; gap: 8px; min-height: 44px; width: fit-content; color: #35482c; font-size: 13px; line-height: 1.5; text-underline-offset: 4px; }
+.gt-legal-modal__sources svg { width: 16px; height: 16px; flex-shrink: 0; }
+.gt-legal-modal__footer { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; gap: 18px; padding: 18px 32px; border-top: 1px solid #27332525; background: #e8e7dd; }
+.gt-legal-modal__footer > div { min-width: 0; }
+.gt-legal-modal__footer span { display: block; color: #606857; font-size: 10px; line-height: 1.5; }
+.gt-legal-modal__footer a { display: inline-flex; align-items: center; min-height: 44px; color: #263126; font-size: 13px; line-height: 1.5; text-underline-offset: 4px; overflow-wrap: anywhere; }
+.gt-legal-modal__footer button { min-height: 44px; flex-shrink: 0; padding: 12px 24px; border: 1px solid #263126; border-radius: 999px; background: #263126; color: #f1efe8; font: inherit; font-size: 12px; cursor: pointer; }
+.gt-legal-modal button, .gt-legal-modal a { transition: background-color .18s, color .18s; }
+.gt-legal-modal :is(button, a, [role='region']):focus-visible { outline: 2px solid #657547; outline-offset: 3px; }
+.gt-legal-modal__body:focus-visible { outline-offset: -4px; }
+.gt-legal-modal__sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (hover: hover) {
+  .gt-legal-modal__close:hover { background: #dedfce; }
+  .gt-legal-modal__footer button:hover { background: #45523c; }
+  .gt-legal-modal a:hover { color: #687344; }
+}
+@media (max-width: 600px) {
+  .gt-legal-modal { width: calc(100% - 24px); max-height: calc(100dvh - 24px); border-radius: 12px; }
+  .gt-legal-modal__header { gap: 12px; padding: 24px 20px 20px; }
+  .gt-legal-modal__eyebrow { max-width: 220px; margin-bottom: 12px; font-size: 9px; }
+  .gt-legal-modal__body { padding: 22px 20px 26px; }
+  .gt-legal-modal__intro { font-size: 15px; }
+  .gt-legal-modal__footer { flex-wrap: wrap; padding: 14px 20px; gap: 8px 16px; }
+  .gt-legal-modal__footer button { margin-left: auto; }
+}
+@keyframes gt-legal-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .gt-legal-modal[open] { animation: none; } .gt-legal-modal button, .gt-legal-modal a { transition: none; } }

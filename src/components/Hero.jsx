@@ -11,7 +11,7 @@ const introTransform = {
 
 export default function Hero() {
   return (
-    <section className="hero">
+    <section className="hero" id="acasa">
       <div className="hero__content">
         <h1 className="hero__title" style={introTransform}>
           <BlurText

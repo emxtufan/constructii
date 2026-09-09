@@ -1,0 +1,40 @@
+{
+  "brief": {
+    "at": "2026-09-07T12:40:14.905670+00:00",
+    "note": "Scope and authorization reviewed; authentic project media and stage are missing, so facts remain unset and the result provisional.",
+    "files": [
+      {
+        "path": "design/brief.md",
+        "sha256": "3b32edededacf9d87af102c0bbe2bc6defdffa6031fdeec201416c5f95d9a617"
+      }
+    ]
+  },
+  "direction": {
+    "at": "2026-09-07T12:40:15.001458+00:00",
+    "note": "Architectural editorial direction preserves Green Tech, uses conditional real imagery and restrained native motion with readable static fallback.",
+    "files": [
+      {
+        "path": "design/direction.md",
+        "sha256": "7cf1dc711a40f5fa8c584bcfec3c9cb595337a13c0b185e53693854f90c0243b"
+      },
+      {
+        "path": "design/tokens.json",
+        "sha256": "60bd5c15aa9e630cd7188d9b7c33c0fb4a9e089b43778d40ac4410e179d45f42"
+      }
+    ]
+  },
+  "architecture": {
+    "at": "2026-09-07T12:40:54.053426+00:00",
+    "note": "Component ownership, real-content dependencies, responsive states and planned coverage reviewed. Browser tooling will be used for actual captures; unperformed checks remain NOT_RUN.",
+    "files": [
+      {
+        "path": "design/sections.json",
+        "sha256": "e90acbb2f4ed4954c7f18de240cdfbb0cf762c9c2b6cdf0c0474815c04533b84"
+      },
+      {
+        "path": "qa/plan.json",
+        "sha256": "fa35088e06ec736be59a886863d5fb4c53b87c6807718fbf28ef4eb2b9647fc8"
+      }
+    ]
+  }
+}

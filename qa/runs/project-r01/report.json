@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "run": "project-r01",
+  "checks": [
+    {
+      "id": "accessibility",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "build",
+      "status": "FAIL",
+      "note": "Recorded command result; inspect the log.",
+      "evidence": [
+        {
+          "path": "qa/runs/project-r01/logs/build.txt",
+          "sha256": "7cf6de522da1b3486257ed11ae7b063be4a5ed247380bfb526aa83d6490343f9"
+        },
+        {
+          "path": "qa/runs/project-r01/logs/build.json",
+          "sha256": "6dd61725ab8a9a438290b236a9ef482854ce1b4221817d365e507fe267f4e7c1"
+        }
+      ]
+    },
+    {
+      "id": "console",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "interaction",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "performance",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "responsive",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "id": "content-integrity",
+      "status": "NOT_RUN",
+      "note": "",
+      "evidence": []
+    }
+  ],
+  "visual_reviews": [
+    {
+      "case_id": "home-mobile",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "case_id": "home-tablet",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "",
+      "note": "",
+      "evidence": []
+    },
+    {
+      "case_id": "home-desktop",
+      "status": "NOT_RUN",
+      "inspected": false,
+      "reviewer": "",
+      "note": "",
+      "evidence": []
+    }
+  ],
+  "findings": []
+}

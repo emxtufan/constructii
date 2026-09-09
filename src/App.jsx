@@ -5,10 +5,11 @@ import Footer from './components/Footer.jsx';
 import Loader from './components/Loader.jsx';
 import SmoothScroll from './components/effects/SmoothScroll.jsx';
 
-// The 3D scene, smooth-scroll, page transitions, FAQ accordion, mobile menu and loader
+// The 3D scene, smooth-scroll, page transitions, FAQ accordion and loader
 // animation all live in the original compiled engine (CommonScripts -> renderer + vendor).
 // We render the real DOM structure it expects (same classes/ids) and boot that engine
-// unchanged — the section markup is ours, the engine stays 1:1.
+// with a scoped floor-AO correction for logo_G. Header owns its navigation and
+// mobile menu independently in React.
 const SCENE_SRC = '/_astro/CommonScripts.astro_astro_type_script_index_0_lang.CZTi642d.js';
 const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '::1']);
 
@@ -36,7 +37,6 @@ export default function App() {
     <>
       <SmoothScroll />
       <div className="transition-pages"></div>
-      <div className="mobile-nav__overlay"></div>
       <Header  />
       <Main />
       <Footer />

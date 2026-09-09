@@ -1,50 +1,55 @@
-// Accordion toggling is owned by the compiled scene engine (it swaps `faq-item--open`
-// and `aria-expanded` on `.faq-item__header`). We render the exact initial DOM — first
-// item open, the rest closed — and let the engine drive it, so we don't duplicate logic.
+import './FaqSection.css';
+
 const faqs = [
   {
-    q: 'Ce tipuri de proiecte realizati?',
-    a: 'Realizam case individuale, ansambluri rezidentiale, cladiri cu functiuni mixte, renovari complete si modernizari energetice. Putem prelua intregul proiect sau doar etapele dorite.',
+    question: 'Ce informații sunt utile pentru o primă discuție?',
+    answer: 'Tipul lucrării, locația, suprafața aproximativă și stadiul în care se află proiectul sunt un bun punct de plecare. Adaugă serviciile de care ai nevoie și un buget orientativ, dacă l-ai stabilit. Planurile și fotografiile disponibile pot completa discuția.',
   },
   {
-    q: 'Puteti gestiona proiectul de la idee la cheie?',
-    a: 'Da. Analizam terenul, definim conceptul, coordonam proiectarea si autorizarea, organizam executia si predam constructia finalizata. Bugetul si calendarul sunt stabilite de la inceput.',
+    question: 'Pot cere o ofertă dacă nu am încă proiectul complet?',
+    answer: 'Poți începe prin a descrie ideea și informațiile pe care le ai. O cerere inițială ajută la clarificarea lucrării; o estimare relevantă depinde de definirea soluției, a cantităților și a condițiilor de execuție.',
   },
   {
-    q: 'Cum controlati bugetul si termenul?',
-    a: 'Lucram pe baza unui deviz detaliat, a unui calendar pe etape si a unor aprobari clare pentru orice modificare. Comunicarea periodica ofera control asupra progresului si costurilor.',
+    question: 'Cum se stabilește bugetul unei lucrări?',
+    answer: 'Bugetul se construiește din lucrările necesare, cantități, materiale, manoperă și particularitățile amplasamentului. Compararea ofertelor are sens atunci când este clar ce include fiecare. Modificările de proiect trebuie discutate împreună cu efectul lor asupra costurilor.',
   },
   {
-    q: 'Ce inseamna o constructie Green Tech?',
-    a: 'Inseamna orientare corecta, izolatie performanta, instalatii eficiente, materiale alese responsabil si solutii pregatite pentru energie regenerabila. Rezultatul este confort sporit si consum redus.',
+    question: 'Cât durează un proiect?',
+    answer: 'Durata depinde de amploarea lucrării, documentație, autorizări, accesul la amplasament, aprovizionare și succesiunea etapelor. Calendarul se poate discuta după clarificarea acestor condiții; o durată generică nu descrie corect fiecare proiect.',
+  },
+  {
+    question: 'Cum sunt alese materialele și soluțiile tehnice?',
+    answer: 'Alegerile trebuie corelate cu proiectul, utilizarea clădirii, condițiile de pe teren și bugetul. Specificațiile și alternativele se discută pe baza documentației tehnice. Imaginile de prezentare nu țin loc de specificații pentru lucrarea ta.',
+  },
+  {
+    question: 'Pot solicita doar anumite etape ale lucrării?',
+    answer: 'Indică în cerere ce ai deja realizat și unde ai nevoie de sprijin: consultanță, proiectare, construcție, renovare sau management de proiect. Delimitarea etapelor și a responsabilităților este necesară înainte de stabilirea unei colaborări.',
+  },
+  {
+    question: 'Cum trimit cererea și planurile?',
+    answer: 'Formularul de mai jos pregătește un rezumat pe care îl poți verifica și edita. Apoi îl poți deschide în aplicația de email sau copia. Planurile și fotografiile se atașează în email; cererea se trimite din aplicația ta, după verificare.',
   },
 ];
 
 export default function FaqSection() {
   return (
-    <section className="faq">
-      <div className="faq__container">
-        <div className="faq__left">
-          <h2 className="faq__title">Raspunsuri clare inainte sa incepem constructia.</h2>
+    <section className="build-faq" id="intrebari" aria-labelledby="build-faq-title">
+      <div className="build-faq__container">
+        <div className="build-faq__intro">
+          <h2 id="build-faq-title">Good questions.<br /><span>Clear beginnings.</span></h2>
+          <p className="build-faq__description">Câteva repere pentru o discuție bine pregătită, de la prima idee până la definirea lucrării.</p>
         </div>
-        <div className="faq_split_bar"></div>
-        <div className="faq__right">
-          {faqs.map((item, i) => {
-            const open = i === 0;
-            return (
-              <div className={open ? 'faq-item faq-item--open' : 'faq-item '} key={item.q}>
-                <button className="faq-item__header" type="button" aria-expanded={open ? 'true' : 'false'}>
-                  <span className="faq-item__question">{item.q}</span>
-                  <span className="faq-item__icon">
-                    <img src="/icons/chevron-down.svg" alt="" loading="lazy" decoding="async" />
-                  </span>
-                </button>
-                <div className="faq-item__content">
-                  <p className="faq-item__answer">{item.a}</p>
-                </div>
-              </div>
-            );
-          })}
+        <div className="build-faq__items">
+          {faqs.map((item, index) => (
+            <details className="build-faq__item" key={item.question}>
+              <summary>
+                <span className="build-faq__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <span className="build-faq__question">{item.question}</span>
+                <span className="build-faq__icon" aria-hidden="true"><span /><span /></span>
+              </summary>
+              <div className="build-faq__answer"><p>{item.answer}</p></div>
+            </details>
+          ))}
         </div>
       </div>
     </section>

@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "checks": [
+    {
+      "id": "accessibility",
+      "kind": "manual",
+      "allow_na": false
+    },
+    {
+      "id": "build",
+      "kind": "command",
+      "allow_na": false
+    },
+    {
+      "id": "console",
+      "kind": "manual",
+      "allow_na": false
+    },
+    {
+      "id": "interaction",
+      "kind": "manual",
+      "allow_na": false
+    },
+    {
+      "id": "performance",
+      "kind": "manual",
+      "allow_na": false
+    },
+    {
+      "id": "responsive",
+      "kind": "manual",
+      "allow_na": false
+    },
+    {
+      "id": "content-integrity",
+      "kind": "manual",
+      "allow_na": false
+    }
+  ],
+  "cases": [
+    {
+      "id": "home-mobile",
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "reduced_motion": true,
+      "ready_selector": "main",
+      "actions": [],
+      "sections": [
+        {
+          "id": "navbar",
+          "selector": ".gt-header"
+        },
+        {
+          "id": "hero",
+          "selector": "#acasa"
+        },
+        {
+          "id": "process",
+          "selector": "#proces"
+        },
+        {
+          "id": "services",
+          "selector": "#servicii"
+        },
+        {
+          "id": "project-intro",
+          "selector": "#proiecte"
+        },
+        {
+          "id": "ground-to-home",
+          "selector": "#ground-to-home"
+        },
+        {
+          "id": "current-progress",
+          "selector": "#current-progress"
+        },
+        {
+          "id": "materials",
+          "selector": "#materials-craft"
+        },
+        {
+          "id": "gallery",
+          "selector": "#behind-build"
+        },
+        {
+          "id": "engineering",
+          "selector": "#engineering-precision"
+        },
+        {
+          "id": "comparison",
+          "selector": "#before-current"
+        },
+        {
+          "id": "approach",
+          "selector": "#de-ce-noi"
+        },
+        {
+          "id": "next",
+          "selector": "#what-comes-next"
+        },
+        {
+          "id": "journal",
+          "selector": "#project-journal"
+        },
+        {
+          "id": "faq",
+          "selector": "#intrebari"
+        },
+        {
+          "id": "quote",
+          "selector": "#contact"
+        },
+        {
+          "id": "statement",
+          "selector": "#final-statement"
+        },
+        {
+          "id": "footer",
+          "selector": ".footer"
+        }
+      ]
+    },
+    {
+      "id": "home-tablet",
+      "route": "/",
+      "width": 768,
+      "height": 1024,
+      "reduced_motion": true,
+      "ready_selector": "main",
+      "actions": [],
+      "sections": [
+        {
+          "id": "navbar",
+          "selector": ".gt-header"
+        },
+        {
+          "id": "hero",
+          "selector": "#acasa"
+        },
+        {
+          "id": "process",
+          "selector": "#proces"
+        },
+        {
+          "id": "services",
+          "selector": "#servicii"
+        },
+        {
+          "id": "project-intro",
+          "selector": "#proiecte"
+        },
+        {
+          "id": "ground-to-home",
+          "selector": "#ground-to-home"
+        },
+        {
+          "id": "current-progress",
+          "selector": "#current-progress"
+        },
+        {
+          "id": "materials",
+          "selector": "#materials-craft"
+        },
+        {
+          "id": "gallery",
+          "selector": "#behind-build"
+        },
+        {
+          "id": "engineering",
+          "selector": "#engineering-precision"
+        },
+        {
+          "id": "comparison",
+          "selector": "#before-current"
+        },
+        {
+          "id": "approach",
+          "selector": "#de-ce-noi"
+        },
+        {
+          "id": "next",
+          "selector": "#what-comes-next"
+        },
+        {
+          "id": "journal",
+          "selector": "#project-journal"
+        },
+        {
+          "id": "faq",
+          "selector": "#intrebari"
+        },
+        {
+          "id": "quote",
+          "selector": "#contact"
+        },
+        {
+          "id": "statement",
+          "selector": "#final-statement"
+        },
+        {
+          "id": "footer",
+          "selector": ".footer"
+        }
+      ]
+    },
+    {
+      "id": "home-desktop",
+      "route": "/",
+      "width": 1440,
+      "height": 1000,
+      "reduced_motion": false,
+      "ready_selector": "main",
+      "actions": [],
+      "sections": [
+        {
+          "id": "navbar",
+          "selector": ".gt-header"
+        },
+        {
+          "id": "hero",
+          "selector": "#acasa"
+        },
+        {
+          "id": "process",
+          "selector": "#proces"
+        },
+        {
+          "id": "services",
+          "selector": "#servicii"
+        },
+        {
+          "id": "project-intro",
+          "selector": "#proiecte"
+        },
+        {
+          "id": "ground-to-home",
+          "selector": "#ground-to-home"
+        },
+        {
+          "id": "current-progress",
+          "selector": "#current-progress"
+        },
+        {
+          "id": "materials",
+          "selector": "#materials-craft"
+        },
+        {
+          "id": "gallery",
+          "selector": "#behind-build"
+        },
+        {
+          "id": "engineering",
+          "selector": "#engineering-precision"
+        },
+        {
+          "id": "comparison",
+          "selector": "#before-current"
+        },
+        {
+          "id": "approach",
+          "selector": "#de-ce-noi"
+        },
+        {
+          "id": "next",
+          "selector": "#what-comes-next"
+        },
+        {
+          "id": "journal",
+          "selector": "#project-journal"
+        },
+        {
+          "id": "faq",
+          "selector": "#intrebari"
+        },
+        {
+          "id": "quote",
+          "selector": "#contact"
+        },
+        {
+          "id": "statement",
+          "selector": "#final-statement"
+        },
+        {
+          "id": "footer",
+          "selector": ".footer"
+        }
+      ]
+    }
+  ]
+}

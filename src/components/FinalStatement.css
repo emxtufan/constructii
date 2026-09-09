@@ -1,0 +1,151 @@
+.final-statement {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: 112px 48px;
+  background: #f1efe8;
+  color: #20251f;
+  scroll-margin-top: 92px;
+}
+
+.final-statement__container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.final-statement__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 56px;
+  color: #64685e;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.final-statement__eyebrow > span {
+  width: 28px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: #c4ad7f;
+}
+
+.final-statement__title {
+  max-width: 1160px;
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(44px, 7.8vw, 108px);
+  font-weight: 500;
+  line-height: .99;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+
+.final-statement .animated-hero__introduction {
+  max-width: 17ch;
+  color: #64685e;
+}
+
+.final-statement .animated-hero__statement {
+  margin-top: .24em;
+  color: #20251f;
+}
+
+.final-statement .animated-hero__words { color: #796443; }
+
+.final-statement__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-top: 36px;
+}
+.final-statement__footer > p { margin: 0; color: #64685e; font-size: 16px; line-height: 1.65; }
+.final-statement__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.final-statement__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 52px;
+  padding: 14px 22px;
+  border: 1px solid #c8c9bf;
+  border-radius: 4px;
+  color: #20251f;
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color .2s, border-color .2s;
+}
+.final-statement__action--primary { border-color: #20251f; background: #20251f; color: #f5f3ec; }
+.final-statement__action svg { flex-shrink: 0; width: 20px; height: 20px; }
+.final-statement__action:focus-visible { outline: 2px solid #796443; outline-offset: 5px; }
+@media (hover: hover) {
+  .final-statement__action:hover { background: #e6e3d8; border-color: #a8ad9d; }
+  .final-statement__action--primary:hover { background: #3a4334; border-color: #3a4334; }
+}
+
+.final-statement__rule {
+  position: relative;
+  height: 1px;
+  margin-top: 72px;
+  background: #d5d6ce;
+}
+
+.final-statement__rule > span {
+  display: block;
+  width: 88px;
+  height: 1px;
+  background: #c4ad7f;
+  transform-origin: left;
+}
+
+/* The finished typography is visible without animation support. Each entrance
+   plays once after the section enters view and never controls scroll position. */
+@media (prefers-reduced-motion: no-preference) {
+  .final-statement[data-revealed='true'] .animated-hero__introduction {
+    animation: final-statement-enter 750ms cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .final-statement[data-revealed='true'] .animated-hero__statement {
+    animation: final-statement-enter 750ms cubic-bezier(.22, 1, .36, 1) 120ms both;
+  }
+
+  .final-statement[data-revealed='true'] .final-statement__rule > span {
+    animation: final-statement-rule 850ms cubic-bezier(.22, 1, .36, 1) 240ms both;
+  }
+}
+
+@keyframes final-statement-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes final-statement-rule {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (max-width: 900px) {
+  .final-statement { padding: 88px 32px; }
+  .final-statement__eyebrow { margin-bottom: 40px; }
+  .final-statement__rule { margin-top: 56px; }
+  .final-statement__footer { align-items: flex-start; flex-direction: column; gap: 24px; }
+}
+
+@media (max-width: 600px) {
+  .final-statement { padding: 64px 24px; scroll-margin-top: 86px; }
+  .final-statement__title { font-size: clamp(37px, 9.8vw, 58px); line-height: 1.03; letter-spacing: -.05em; }
+  .final-statement__eyebrow { margin-bottom: 36px; font-size: 10px; letter-spacing: .1em; }
+  .final-statement .animated-hero__statement { margin-top: .4em; }
+  .final-statement__actions { width: 100%; }
+  .final-statement__action { flex: 1 1 220px; }
+  .final-statement__rule { margin-top: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .final-statement * { animation: none !important; transition: none !important; }
+}

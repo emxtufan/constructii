@@ -1,0 +1,14 @@
+interface:
+  display_name: ESA Web Design Workflow
+  short_description: Build brand-led websites with evidence-based visual QA
+  default_prompt: Use $esa-web-design-workflow to design and build this website, capture
+    real visual evidence, and repair failed sections within the audit budget.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

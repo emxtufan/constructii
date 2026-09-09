@@ -1,0 +1,13 @@
+[
+  {
+    "id": "repair-1",
+    "section": "comparison",
+    "finding": "F01",
+    "source_run": "project-r02",
+    "hypothesis": "The instruction is unconditional while the range is photo-dependent; show a description of the pending comparison until both photos are present.",
+    "started_at": "2026-09-07T12:54:07.591454+00:00",
+    "outcome": "RESOLVED",
+    "verification_run": "project-r03",
+    "note": "Mobile viewport of current build confirms conditional instruction and honest unavailable-photo state."
+  }
+]

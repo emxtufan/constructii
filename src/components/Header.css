@@ -1,0 +1,205 @@
+/* Top-attached navigation; its namespace isolates the legacy scene's styles. */
+header.gt-header {
+  --nav-surface: #171815;
+  --nav-text: #fbfaf6;
+  --nav-muted: #bebfb6;
+  --nav-accent: #d4bd8e;
+  position: fixed;
+  inset: 0 auto auto 50%;
+  z-index: 50;
+  display: block;
+  width: min(960px, calc(100% - 64px));
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0 0 22px 22px;
+  background: var(--nav-surface);
+  color: var(--nav-text);
+  transform: translateX(-50%);
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 4px 8px #17181508;
+  transition: box-shadow 220ms ease;
+  isolation: isolate;
+}
+
+header.gt-header.show,
+header.gt-header.header--white,
+header.gt-header.sub-page {
+  background: var(--nav-surface);
+  transform: translateX(-50%);
+}
+
+header.gt-header::before,
+header.gt-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  pointer-events: none;
+  transition: none;
+}
+header.gt-header::before {
+  right: 100%;
+  background: radial-gradient(circle at 0 100%, transparent 20px, var(--nav-surface) 20.5px);
+}
+header.gt-header::after {
+  left: 100%;
+  background: radial-gradient(circle at 100% 100%, transparent 20px, var(--nav-surface) 20.5px);
+}
+header.gt-header--scrolled { box-shadow: 0 10px 32px #17181522, 0 2px 6px #17181514; }
+
+.gt-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 24px;
+  padding: 0 18px 0 24px;
+}
+.gt-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+}
+.gt-nav-brand img { display: block; width: 194px; height: auto; }
+.gt-nav-desktop { display: flex; align-items: center; justify-content: center; gap: 4px; }
+.gt-nav-desktop a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--nav-muted);
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+.gt-nav-desktop a[aria-current] { color: var(--nav-accent); background: #d4bd8e12; }
+.gt-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  min-height: 44px;
+  flex-shrink: 0;
+  padding: 0 16px;
+  border: 1px solid #fff7;
+  border-radius: 10px;
+  background: #f3efe5;
+  color: #20211c;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+.gt-nav-cta svg,
+.gt-nav-panel nav svg { width: 20px; height: 20px; flex: 0 0 auto; transition: transform 160ms ease; }
+.gt-header a:focus-visible,
+.gt-header button:focus-visible { outline: 2px solid var(--nav-accent); outline-offset: 4px; }
+.gt-nav-toggle,
+.gt-nav-panel[hidden] { display: none; }
+.gt-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: #12141066;
+  animation: gt-backdrop-in 180ms ease both;
+}
+@media (hover: hover) {
+  .gt-nav-desktop a:hover { color: var(--nav-text); background: #ffffff0d; }
+  .gt-nav-cta:hover { background: #dfcea9; }
+  .gt-nav-cta:hover svg,
+  .gt-nav-panel nav a:hover svg { transform: translateX(3px); }
+  .gt-nav-panel nav a:hover { color: var(--nav-accent); }
+}
+@media (max-width: 900px) {
+  header.gt-header { width: calc(100% - 40px); max-width: 600px; border-radius: 0 0 20px 20px; }
+  .gt-nav-bar { min-height: 66px; gap: 16px; padding: 0 14px 0 20px; }
+  .gt-nav-brand img { width: 180px; }
+  .gt-nav-desktop,
+  .gt-nav-cta--desktop { display: none; }
+  .gt-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 7px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--nav-muted);
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+  }
+  .gt-nav-toggle__label { font-size: 12px; }
+  .gt-nav-toggle__icon { position: relative; width: 20px; height: 20px; }
+  .gt-nav-toggle__icon span {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 20px;
+    height: 1.5px;
+    border-radius: 2px;
+    background: var(--nav-text);
+    transition: transform 180ms ease;
+  }
+  .gt-nav-toggle__icon span:last-child { top: 13px; }
+  .gt-header--open .gt-nav-toggle__icon span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .gt-header--open .gt-nav-toggle__icon span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+  .gt-nav-panel {
+    max-height: calc(100dvh - 86px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 8px 24px 24px;
+    border-radius: 0 0 20px 20px;
+    animation: gt-panel-in 220ms ease both;
+  }
+  .gt-nav-panel nav { display: flex; flex-direction: column; }
+  .gt-nav-panel nav a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 70px;
+    border-top: 1px solid #ffffff13;
+    color: var(--nav-text);
+    font-size: 25px;
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+    text-decoration: none;
+  }
+  .gt-nav-panel nav a[aria-current] { color: var(--nav-accent); }
+  .gt-nav-index { color: var(--nav-accent); font-size: 10px; letter-spacing: 0.03em; }
+  .gt-nav-panel nav svg { margin-left: auto; color: #a5a69a; }
+  .gt-nav-panel__footer { padding-top: 24px; border-top: 1px solid #ffffff13; }
+  .gt-nav-panel__footer p { margin: 0 0 14px; color: var(--nav-muted); font-size: 12px; line-height: 1.5; }
+  .gt-nav-panel__footer .gt-nav-cta { width: 100%; min-height: 50px; justify-content: space-between; }
+}
+@media (max-width: 370px) {
+  .gt-nav-brand img { width: 166px; }
+  .gt-nav-toggle__label { display: none; }
+  .gt-nav-panel { padding-right: 20px; padding-left: 20px; }
+  .gt-nav-panel__footer .gt-nav-cta { padding: 0 12px; font-size: 13px; }
+}
+@keyframes gt-panel-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gt-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  header.gt-header,
+  .gt-header *,
+  .gt-nav-backdrop { animation: none !important; transition: none !important; }
+}
