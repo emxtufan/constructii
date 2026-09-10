@@ -1,13 +1,39 @@
 import { useEffect, useRef, useState } from 'react';
 import './Header.css';
 
-const links = [
-  { href: '#proiecte', label: 'Proiectul' },
-  { href: '#proces', label: 'Cum lucrăm' },
-  { href: '#project-journal', label: 'Jurnal' },
-  { href: '#intrebari', label: 'Întrebări' },
-];
+const sectionLabels = {
+  acasa: 'Acasă',
+  proces: 'Cum lucrăm',
+  servicii: 'Servicii',
+  proiecte: 'Proiectul',
+  'ground-to-home': 'Etapele proiectului',
+  'current-progress': 'Stadiul actual',
+  'materials-craft': 'Materiale și execuție',
+  'behind-build': 'Din șantier',
+  'engineering-precision': 'Inginerie și precizie',
+  'before-current': 'Înainte și acum',
+  'de-ce-noi': 'De ce noi',
+  'what-comes-next': 'Etapele următoare',
+  'project-journal': 'Jurnalul proiectului',
+  intrebari: 'Întrebări frecvente',
+  contact: 'Cere ofertă',
+  'final-statement': 'Viziunea noastră',
+  'site-footer': 'Să construim împreună',
+};
+const primarySections = new Set(['#servicii', '#proiecte', '#de-ce-noi']);
 const desktopQuery = '(min-width: 901px)';
+
+function getPageLinks() {
+  // Read semantic sections in page order; headings, form IDs and disabled
+  // components are not navigation destinations. New sections can set a label.
+  return [...document.querySelectorAll('main section[id], footer[id]')]
+    .filter(section => !section.closest('[hidden], [aria-hidden="true"]'))
+    .map(section => ({
+      href: `#${section.id}`,
+      label: section.dataset.navLabel || sectionLabels[section.id]
+        || section.querySelector('h1, h2, h3')?.textContent.trim() || section.id,
+    }));
+}
 
 function scrollToSection(hash, immediate = false) {
   const target = document.getElementById(hash.slice(1));
@@ -37,6 +63,7 @@ function ArrowIcon() {
 }
 
 export default function Header() {
+  const [links, setLinks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -44,6 +71,9 @@ export default function Header() {
   const toggleRef = useRef(null);
   const panelRef = useRef(null);
   const navigationFrame = useRef(null);
+  const returnFocusToToggle = useRef(true);
+
+  useEffect(() => { setLinks(getPageLinks()); }, []);
 
   useEffect(() => {
     let frame;
@@ -80,26 +110,31 @@ export default function Header() {
     let frame;
     const update = () => {
       setIsScrolled(window.scrollY > 24);
-      const section = [...links, { href: '#contact' }]
-        .map(link => ({ href: link.href, top: document.querySelector(link.href)?.getBoundingClientRect().top ?? Infinity }))
-        .filter(item => item.top <= 160)
+      const activationLine = (document.querySelector('.gt-nav-bar')?.getBoundingClientRect().bottom ?? 72) + 24;
+      const section = links
+        .map(link => ({ href: link.href, top: document.getElementById(link.href.slice(1))?.getBoundingClientRect().top ?? Infinity }))
+        .filter(item => item.top <= activationLine)
         .sort((a, b) => b.top - a.top)[0];
-      setActiveSection(section?.href ?? '');
+      const atPageEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+      setActiveSection(atPageEnd ? links.at(-1)?.href ?? '' : section?.href ?? '#acasa');
       frame = null;
     };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
     const media = window.matchMedia(desktopQuery);
-    const onResize = () => { if (media.matches) setIsOpen(false); onScroll(); };
+    const onResize = () => onScroll();
+    const onBreakpointChange = () => setIsOpen(false);
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
+    media.addEventListener('change', onBreakpointChange);
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
+      media.removeEventListener('change', onBreakpointChange);
       cancelAnimationFrame(frame);
       cancelAnimationFrame(navigationFrame.current);
     };
-  }, []);
+  }, [links]);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -147,7 +182,7 @@ export default function Header() {
       if (body.style.overflow === 'hidden') body.style.overflow = previousOverflow;
       if (!wasStopped) scroller?.start();
       background.forEach(({ element, inert }) => { element.inert = inert; });
-      if (!window.matchMedia(desktopQuery).matches) toggleRef.current?.focus({ preventScroll: true });
+      if (returnFocusToToggle.current) toggleRef.current?.focus({ preventScroll: true });
     };
   }, [isOpen]);
 
@@ -158,6 +193,7 @@ export default function Header() {
     if (!target) return;
     event.preventDefault();
     event.stopPropagation();
+    returnFocusToToggle.current = false;
     setIsOpen(false);
     cancelAnimationFrame(navigationFrame.current);
     navigationFrame.current = requestAnimationFrame(() => {
@@ -177,19 +213,16 @@ export default function Header() {
         aria-label={isOpen ? 'Meniu principal' : undefined}
       >
         <div className="gt-nav-bar">
-          <a className="gt-nav-brand" href="#acasa" onClick={navigate} aria-label="Green Tech Real Estate — Acasă">
+          <a className="gt-nav-brand" href="#acasa" onClick={navigate} aria-label="Green Tech Real Estate — Acasă" aria-current={activeSection === '#acasa' ? 'location' : undefined}>
             <img src="/img/greentech-logo-light.svg" alt="Green Tech Real Estate" width="282" height="38" />
           </a>
           <nav className="gt-nav-desktop" aria-label="Navigare principală">
-            {links.map(link => (
+            {links.filter(link => primarySections.has(link.href)).map(link => (
               <a key={link.href} href={link.href} onClick={navigate} aria-current={activeSection === link.href ? 'location' : undefined}>
                 {link.label}
               </a>
             ))}
           </nav>
-          <a className="gt-nav-cta gt-nav-cta--desktop" href="#contact" onClick={navigate}>
-            Cere ofertă <ArrowIcon />
-          </a>
           <button
             ref={toggleRef}
             className="gt-nav-toggle"
@@ -197,17 +230,21 @@ export default function Header() {
             aria-label={isOpen ? 'Închide meniul' : 'Deschide meniul'}
             aria-expanded={isOpen}
             aria-controls="gt-mobile-menu"
-            onClick={() => setIsOpen(open => !open)}
+            onClick={() => { returnFocusToToggle.current = true; setIsOpen(open => !open); }}
           >
             <span className="gt-nav-toggle__label">Meniu</span>
             <span className="gt-nav-toggle__icon" aria-hidden="true"><span /><span /></span>
           </button>
+          <a className="gt-nav-cta gt-nav-cta--desktop" href="#contact" onClick={navigate} aria-current={activeSection === '#contact' ? 'location' : undefined}>
+            Cere ofertă <ArrowIcon />
+          </a>
         </div>
         <div ref={panelRef} id="gt-mobile-menu" className="gt-nav-panel" hidden={!isOpen} data-lenis-prevent>
-          <nav aria-label="Navigare mobilă">
+          <p className="gt-nav-panel__heading">Explorează pagina</p>
+          <nav aria-label="Toate secțiunile">
             {links.map((link, index) => (
               <a key={link.href} href={link.href} onClick={navigate} aria-current={activeSection === link.href ? 'location' : undefined}>
-                <span className="gt-nav-index" aria-hidden="true">0{index + 1}</span>
+                <span className="gt-nav-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 <span>{link.label}</span>
                 <ArrowIcon />
               </a>

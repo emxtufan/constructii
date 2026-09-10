@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import './CtaSection.css';
 
 const recipient = 'contact@greentechrealestate.ro';
@@ -12,28 +12,33 @@ function Arrow() {
 }
 
 export default function CtaSection() {
-  const [isReviewing, setIsReviewing] = useState(false);
-  const [summary, setSummary] = useState('');
-  const [copyStatus, setCopyStatus] = useState('');
+  const [sendState, setSendState] = useState('idle');
+  const [sendMessage, setSendMessage] = useState('');
   const formRef = useRef(null);
-  const summaryRef = useRef(null);
-  const reviewRef = useRef(null);
-  const hasPrepared = useRef(false);
+  const sendLock = useRef(false);
+  const isSending = sendState === 'sending';
+  const isSent = sendState === 'success';
 
-  useEffect(() => {
-    if (!hasPrepared.current) return;
-    const container = isReviewing ? reviewRef.current : formRef.current;
-    container?.scrollIntoView({ block: 'start', behavior: 'instant' });
-    const target = isReviewing ? container : container?.querySelector('select');
-    target?.focus({ preventScroll: true });
-  }, [isReviewing]);
-
-  const prepareRequest = event => {
+  const sendRequest = async event => {
     event.preventDefault();
+    if (sendLock.current || isSent) return;
     const data = new FormData(event.currentTarget);
     const value = name => String(data.get(name) ?? '').trim();
-    const selectedServices = data.getAll('services');
-    setSummary([
+    const selectedServices = data.getAll('services').map(String);
+    const requestData = {
+      projectType: value('projectType'),
+      location: value('location'),
+      surface: value('surface'),
+      stage: value('stage'),
+      services: selectedServices,
+      budget: value('budget'),
+      name: value('name'),
+      email: value('email'),
+      phone: value('phone'),
+      message: value('message'),
+      website: value('website'),
+    };
+    const summary = [
       'Bună ziua,',
       'Aș dori să discutăm următorul proiect:',
       '',
@@ -50,25 +55,42 @@ export default function CtaSection() {
       `Nume: ${value('name')}`,
       `Email: ${value('email')}`,
       `Telefon: ${value('phone') || 'Nespecificat'}`,
-    ].join('\n'));
-    hasPrepared.current = true;
-    setCopyStatus('');
-    setIsReviewing(true);
-  };
-
-  const copyRequest = async () => {
+    ].join('\n');
+    sendLock.current = true;
+    setSendState('sending');
+    setSendMessage('Se trimite cererea. Te rugăm să păstrezi pagina deschisă.');
     try {
-      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
-      await navigator.clipboard.writeText(summary);
-      setCopyStatus('Cererea a fost copiată. O poți lipi într-un email.');
-    } catch {
-      summaryRef.current?.focus();
-      summaryRef.current?.select();
-      setCopyStatus('Selectează și copiază textul de mai sus folosind comanda de copiere a dispozitivului.');
+      const response = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...requestData, summary: summary.trim() }),
+      });
+      const result = await response.json().catch(() => null);
+      if (!response.ok || result?.ok !== true) {
+        const message = result?.ok === false && typeof result.message === 'string'
+          ? result.message
+          : 'Nu am putut confirma trimiterea. Cererea a rămas în pagină; poți reveni mai târziu sau ne poți contacta prin email.';
+        throw new Error(message);
+      }
+      setSendState('success');
+      setSendMessage(typeof result.message === 'string' ? result.message : 'Cererea a fost trimisă. Îți mulțumim!');
+    } catch (error) {
+      setSendState('error');
+      setSendMessage(error instanceof TypeError
+        ? 'Conexiunea s-a întrerupt și nu am putut confirma trimiterea. Cererea a rămas în pagină. Pentru a verifica primirea ei, ne poți contacta prin email.'
+        : error.message);
+    } finally {
+      sendLock.current = false;
     }
   };
 
-  const mailHref = `mailto:${recipient}?subject=${encodeURIComponent('Cerere ofertă Green Tech Real Estate')}&body=${encodeURIComponent(summary)}`;
+  const startNewRequest = () => {
+    if (sendLock.current) return;
+    formRef.current?.reset();
+    setSendState('idle');
+    setSendMessage('');
+    requestAnimationFrame(() => formRef.current?.querySelector('select')?.focus());
+  };
 
   return (
     <section className="build-quote" id="contact" aria-labelledby="build-quote-title">
@@ -80,8 +102,13 @@ export default function CtaSection() {
         </div>
 
         <div className="build-quote__workspace">
-          <form ref={formRef} className="build-quote__form" onSubmit={prepareRequest} hidden={isReviewing}>
+          <form ref={formRef} className="build-quote__form" onSubmit={sendRequest} aria-busy={isSending} aria-describedby="build-quote-status">
             <p className="build-quote__form-note">Câmpurile marcate cu * sunt obligatorii.</p>
+            <fieldset className="build-quote__inputs" disabled={isSending || isSent}>
+            <label className="build-quote__honeypot" aria-hidden="true">
+              Website
+              <input name="website" autoComplete="off" tabIndex={-1} />
+            </label>
             <div className="build-quote__fields">
               <label className="build-quote__field">
                 <span>Tip proiect *</span>
@@ -136,31 +163,12 @@ export default function CtaSection() {
                 <textarea name="message" rows={4} maxLength={4000} placeholder="Ce ai deja pregătit, ce servicii cauți și ce contează pentru tine?" />
               </label>
             </div>
-            <p className="build-quote__attachment-note">Ai planuri sau fotografii? Le poți atașa direct în aplicația de email, după verificarea cererii.</p>
-            <button className="build-quote__button build-quote__button--primary" type="submit">REQUEST A QUOTE <Arrow /></button>
-            <p className="build-quote__step-note">Pasul următor: verifici rezumatul. Cererea nu este trimisă automat.</p>
+            </fieldset>
+            <p className="build-quote__attachment-note">Ai planuri sau fotografii? Le poți trimite separat prin email la {recipient}, menționând numele și proiectul tău.</p>
+            <button className="build-quote__button build-quote__button--primary" type="submit" disabled={isSending || isSent}>{isSending ? 'Se trimite…' : isSent ? 'Cerere trimisă' : 'Trimite cererea'} <Arrow /></button>
+            <p id="build-quote-status" className={`build-quote__send-status build-quote__send-status--${sendState}`} role={sendState === 'error' ? 'alert' : 'status'} aria-live={sendState === 'error' ? 'assertive' : 'polite'} aria-atomic="true">{sendMessage}</p>
+            {isSent && <button className="build-quote__back" type="button" onClick={startNewRequest}>Începe o cerere nouă</button>}
           </form>
-
-          {isReviewing && (
-            <div className="build-quote__review" ref={reviewRef} tabIndex={-1} aria-labelledby="build-quote-review-title">
-              <p className="build-quote__eyebrow">02 / REVIEW YOUR REQUEST</p>
-              <h3 id="build-quote-review-title">Verifică cererea.</h3>
-              <p>Poți edita textul de mai jos înainte să îl copiezi sau să îl deschizi în email.</p>
-              <label className="build-quote__field build-quote__summary">
-                <span>Rezumatul cererii</span>
-                <textarea ref={summaryRef} value={summary} onChange={event => { setSummary(event.target.value); setCopyStatus(''); }} rows={18} maxLength={12000} />
-              </label>
-              <p className="build-quote__recipient">Destinatar: <a href={`mailto:${recipient}`}>{recipient}</a></p>
-              <div className="build-quote__review-actions">
-                {summary.trim() ? <a className="build-quote__button build-quote__button--primary" href={mailHref}>Deschide emailul <Arrow /></a> : <button className="build-quote__button build-quote__button--primary" disabled>Deschide emailul <Arrow /></button>}
-                <button className="build-quote__button build-quote__button--secondary" type="button" onClick={copyRequest} disabled={!summary.trim()}>Copiază cererea</button>
-              </div>
-              <p className="build-quote__attachment-note">Atașează planurile în email și trimite mesajul de acolo. Dacă aplicația de email nu se deschide, copiază cererea și folosește adresa de mai sus.</p>
-              <p className="build-quote__copy-status" role="status">{copyStatus}</p>
-              <button className="build-quote__back" type="button" onClick={() => { setIsReviewing(false); setCopyStatus(''); }}>← Înapoi la formular</button>
-              <p className="build-quote__step-note">Câmpurile sunt păstrate. La continuare, rezumatul se regenerează din formular.</p>
-            </div>
-          )}
         </div>
       </div>
     </section>

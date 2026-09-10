@@ -6,13 +6,19 @@ dist/
 build/
 
 # Logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Local server process files
+*.pid
+*.pid.lock
+
 # Environment files
+# SMTP credentials stay local; keep only the configuration template in Git.
 .env
 .env.*
 !.env.example
@@ -20,14 +26,28 @@ pnpm-debug.log*
 # Local editor and OS files
 .DS_Store
 Thumbs.db
+Desktop.ini
 .vscode/
 .idea/
 
 # Vite / tooling cache
 .vite/
+.vite-temp/
+.cache/
+.npm/
 coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Python helpers
+__pycache__/
+*.py[cod]
 
 # Local temporary files
 *.local
-vite-dev.log
-vite-dev.err.log
+*.tmp
+*.swp
+*.swo
+/tmp/
+/temp/

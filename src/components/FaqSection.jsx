@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: 'Cum trimit cererea și planurile?',
-    answer: 'Formularul de mai jos pregătește un rezumat pe care îl poți verifica și edita. Apoi îl poți deschide în aplicația de email sau copia. Planurile și fotografiile se atașează în email; cererea se trimite din aplicația ta, după verificare.',
+    answer: 'Completează formularul de mai jos și apasă „Trimite cererea”. Mesajul ajunge prin website la echipa noastră, fără să deschizi aplicația de email. Planurile și fotografiile se trimit separat la contact@greentechrealestate.ro.',
   },
 ];
 

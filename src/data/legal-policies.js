@@ -17,7 +17,7 @@ export const legalPolicies = [
       {
         title: 'Formular și instrumente de analiză',
         paragraphs: [
-          'Formularul actual păstrează câmpurile și rezumatul în pagina deschisă; aplicația nu le salvează în stocarea persistentă sau de sesiune a browserului. Copierea rezumatului în clipboard are loc numai când alegi această acțiune.',
+          'Formularul actual păstrează câmpurile în pagina deschisă; aplicația nu le salvează în stocarea persistentă sau de sesiune a browserului.',
           'În configurația aplicației examinată nu au fost identificate integrări active de analiză a traficului, remarketing sau publicitate. Eventualele cookie-uri ori servicii adăugate de platforma de găzduire trebuie verificate la publicare.',
         ],
       },
@@ -43,7 +43,7 @@ export const legalPolicies = [
     id: 'privacy',
     label: 'Politica de confidențialitate',
     title: 'Politica de confidențialitate',
-    intro: 'Pagina permite explorarea proiectului și pregătirea unei cereri de ofertă. Mai jos sunt descrise datele cerute și traseul lor în implementarea actuală, pentru a putea decide ce informații dorești să comunici.',
+    intro: 'Pagina permite explorarea proiectului, pregătirea și trimiterea unei cereri de ofertă. Mai jos sunt descrise datele cerute și traseul lor în implementarea actuală, pentru a putea decide ce informații dorești să comunici.',
     sections: [
       {
         title: 'Versiune în lucru',
@@ -55,20 +55,21 @@ export const legalPolicies = [
         title: 'Ce informații poți introduce',
         paragraphs: [
           'Formularul solicită numele, adresa de email, tipul proiectului, locația și stadiul acestuia. Poți adăuga telefonul, suprafața aproximativă, serviciile dorite, bugetul orientativ și detalii despre lucrare. Câmpurile obligatorii sunt marcate în formular.',
-          'Aceste informații ajută la formularea unei solicitări despre proiectul tău. Include numai detaliile relevante; nu este necesar să introduci documente de identitate sau informații personale despre alte persoane pentru a pregăti rezumatul.',
+          'Aceste informații ajută la formularea unei solicitări despre proiectul tău. Include numai detaliile relevante; nu este necesar să introduci documente de identitate sau informații personale despre alte persoane pentru a trimite cererea.',
         ],
       },
       {
         title: 'Cum funcționează cererea de ofertă',
         paragraphs: [
-          'Acționarea formularului generează un rezumat în pagina deschisă, pe care îl poți verifica și edita. Formularul nu transmite automat datele către un server și nu le persistă în stocarea locală a aplicației.',
-          `Dacă alegi „Deschide emailul”, pagina folosește un link mailto pentru a pregăti mesajul către ${legalContact} în aplicația de email. Tu decizi dacă îl trimiți și ce atașamente incluzi. Alternativ, poți copia rezumatul în clipboard și îl poți folosi în aplicația preferată.`,
+          'Completezi formularul și alegi „Trimite cererea”. Până la trimitere, datele rămân în memoria paginii și nu sunt salvate în stocarea persistentă sau de sesiune a browserului.',
+          `Când alegi „Trimite cererea”, câmpurile formularului și un rezumat generat automat din acestea sunt transmise serverului website-ului. Serverul le expediază prin serviciul de email configurat, folosind SMTP, către ${legalContact}. Aplicația nu salvează cererile într-o bază de date. Mesajul trimis este prelucrat și păstrat de serviciile de email folosite.`,
+          'Formularul nu transmite atașamente. Poți trimite separat planuri sau fotografii prin aplicația ta de email.',
         ],
       },
       {
         title: 'Resurse externe și păstrarea datelor',
         paragraphs: [
-          'Pagina include Google Fonts și un marcaj tehnic de sesiune pentru încărcare, descrise în informarea Cookies. Aplicația de email, clipboardul și funcțiile de completare automată ale browserului sunt gestionate separat de formular.',
+          'Pagina include Google Fonts și un marcaj tehnic de sesiune pentru încărcare, descrise în informarea Cookies. Aplicația de email și funcțiile de completare automată ale browserului sunt gestionate separat de formular.',
           'Durata păstrării mesajelor trimise, accesul furnizorilor și existența jurnalelor tehnice ale găzduirii nu pot fi stabilite din această pagină. Aceste aspecte trebuie confirmate și incluse în versiunea finală a informării.',
         ],
       },

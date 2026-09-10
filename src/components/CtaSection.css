@@ -15,8 +15,9 @@
 .build-quote__note-number { padding-top: 3px; font-variant-numeric: tabular-nums; font-size: 11px; color: #64685e; }
 .build-quote__note p { margin: 0; color: #64685e; font-size: 14px; line-height: 1.65; }
 .build-quote__workspace { min-width: 0; }
-.build-quote__form, .build-quote__review { scroll-margin-top: 100px; }
-.build-quote__form[hidden] { display: none; }
+.build-quote__form { scroll-margin-top: 100px; }
+.build-quote__inputs { min-width: 0; margin: 0; padding: 0; border: 0; }
+.build-quote__honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .build-quote__form-note { margin: 0 0 28px; color: #64685e; font-size: 12px; line-height: 1.5; }
 .build-quote__fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; row-gap: 28px; }
 .build-quote__full { grid-column: 1 / -1; }
@@ -45,21 +46,13 @@
 .build-quote__form > .build-quote__button { width: 100%; letter-spacing: .06em; }
 .build-quote__button--secondary { border-color: #a9ad9f; background: transparent; color: #20251f; }
 .build-quote__button:disabled { opacity: .5; cursor: default; }
-.build-quote__step-note { margin: 12px 0 0; color: #64685e; font-size: 12px; line-height: 1.65; }
-.build-quote__review { padding: 28px; background: #f1efe8; }
-.build-quote__review > .build-quote__eyebrow { margin-bottom: 18px; }
-.build-quote__review h3 { margin: 0 0 14px; font-size: clamp(28px, 3vw, 38px); font-weight: 500; line-height: 1.15; letter-spacing: -.04em; }
-.build-quote__review > p:not([class]) { margin: 0; color: #64685e; font-size: 14px; line-height: 1.65; }
-.build-quote__summary { margin-top: 26px; }
-.build-quote__summary textarea { min-height: 350px; background: #fcfcfc; font-size: 14px; line-height: 1.6; }
-.build-quote__recipient { margin: 18px 0 24px; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
-.build-quote__recipient a { color: #20251f; text-decoration: underline; text-underline-offset: 3px; }
-.build-quote__review-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.build-quote__review-actions > * { flex: 1 1 auto; justify-content: center; }
-.build-quote__copy-status { min-height: 22px; margin: 18px 0 0; font-size: 13px; line-height: 1.65; }
+.build-quote__send-status { margin: 18px 0 0; font-size: 14px; line-height: 1.65; overflow-wrap: anywhere; }
+.build-quote__send-status:empty { display: none; }
+.build-quote__send-status--error { padding: 12px 14px; border-left: 3px solid #9d4134; background: #f9e9e3; color: #7d3026; }
+.build-quote__send-status--success { padding: 12px 14px; border-left: 3px solid #47704b; background: #e5eee2; color: #2e5132; }
 .build-quote__back { display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px; padding: 6px 0; border: 0; background: transparent; color: #20251f; font: inherit; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.build-quote__back:disabled { opacity: .5; cursor: default; }
 .build-quote :is(input, select, textarea, button, a):focus-visible { outline: 2px solid #7d6943; outline-offset: 3px; }
-.build-quote__review:focus { outline: 2px solid #7d6943; outline-offset: 4px; }
 @media (hover: hover) and (pointer: fine) {
   .build-quote__button--primary:hover { background: #37402f; }
   .build-quote__button--secondary:hover { background: #e5e2d7; }
@@ -82,8 +75,6 @@
   .build-quote h2 { font-size: clamp(36px, 10vw, 48px); }
   .build-quote__fields { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
   .build-quote__services > div { grid-template-columns: minmax(0, 1fr); }
-  .build-quote__review { padding: 22px 16px; }
-  .build-quote__review-actions { flex-direction: column; }
   .build-quote__button { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
