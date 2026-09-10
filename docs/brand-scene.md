@@ -34,6 +34,16 @@ The same helper extends the last luminous tube and its reflection to the wordmar
 
 The facade node retains the name `logo_G`, so the existing floor AO helper continues to clear the old arrow footprint. Keep the canonical CommonScripts import URL shared by App and renderer; do not introduce a second ESM instance through a one-sided query string.
 
+## Mobile clarity and framing
+
+The mobile DPR cap in `CommonScripts.astro_astro_type_script_index_0_lang.CZTi642d.js` is now 2, still limited by the display's actual devicePixelRatio. Previously it was 1.25 on iOS and 1.5 on narrow Android viewports. Desktop keeps its existing 1.75 cap. Antialiasing and bloom settings are unchanged.
+
+`greentech-mobile-framing.js` exposes `PHONE_SCENE_ZOOM = 1.12`. It applies a 12% camera zoom to devices detected as mobile/tablet with a short viewport edge at most 600px, covering phone portrait and landscape. The original camera position and worker target are preserved. Zoom holds through camera progress .815, then smoothly returns to the original value at .9 so the final GREENTECH framing remains intact. A WeakMap stores the base camera zoom, preventing cumulative enlargement after resize or repeated scrolling. Integration uses only the existing scene resize and RAF callbacks.
+
+The viewport-size bridge also resets its cached mobile height when width changes. This prevents a portrait-height render buffer from being stretched into a landscape canvas; the existing stable-height behavior for browser toolbar changes at the same width is retained.
+
+Build and publish the entire dist, including the new helper and updated CommonScripts. Tested with emulated iPhone/Android user agents and DPR3, not on physical phones. At 393×852 CSS pixels, the resulting canvas is 786×1704. The higher raster resolution increases pixel work; physical-device frame rate and battery impact remain unmeasured.
+
 ## Featured worker colors
 
 The featured worker keeps the user-selected `scale: 4` and sets `appearance: 'construction'` in `greentech-scene-focus.js`. `greentech-worker-colors.js` contains the editable palette: yellow hard hat, orange vest with pale bands, dark teal workwear, dark boots and skin tones. Body masks use the original POSITION attribute before skinning (Y is height, Z is lateral), so the clothing follows the animated figure. Hat and footwear use their existing separate mesh parts.

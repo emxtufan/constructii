@@ -30,7 +30,7 @@ export default function Hero() {
       </div>
       <div className="hero__scroll-btn">
         <span>
-          <span className="hsbtn-in" style={{ transform: 'translate3d(0, calc(100% + 7px), 0)' }}>descopera cum construim </span>
+          <span className="hsbtn-in" style={{ transform: 'translate3d(0, calc(100% + 7px), 0)' }}>Scroll </span>
         </span>
       </div>
     </section>
