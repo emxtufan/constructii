@@ -122,7 +122,7 @@ export function BeforeCurrent({ project }) {
             <img className="build-compare__image" src={project.current.src} alt={project.current.alt || 'Stadiul actual al proiectului'} width={project.current.width || 1600} height={project.current.height || 1000} loading="lazy" decoding="async" draggable="false" />
             <div className="build-compare__before"><img className="build-compare__image" src={project.before.src} alt={project.before.alt || 'Stadiul inițial al proiectului'} width={project.before.width || 1600} height={project.before.height || 1000} loading="lazy" decoding="async" draggable="false" /></div>
             <span className="build-compare__label build-compare__label--before">Before</span><span className="build-compare__label build-compare__label--current">After</span>
-            <span className="build-compare__divider" aria-hidden="true"><span>↔</span></span>
+            <span className="build-compare__divider" aria-hidden="true"><span><img src="/img/before-after.svg" alt="" width="28" height="28" draggable="false" /></span></span>
             <input type="range" min="0" max="100" value={position} onChange={event => setPosition(Number(event.target.value))} aria-label="Compară stadiul inițial cu stadiul actual" aria-valuetext={`${position}% din imaginea inițială vizibilă`} />
           </div>
         ) : (

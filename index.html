@@ -5,20 +5,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="format-detection" content="telephone=no">
         <link rel="canonical" href="/">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
-        <link rel="manifest" href="/icons/site.webmanifest">
-        <link rel="mask-icon" href="/icons/favicon.svg" color="#0B0B0A">
-        <meta name="theme-color" content="#ffffff">
+        <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico?v=greentech-logo">
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png?v=greentech-logo">
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png?v=greentech-logo">
+        <link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48x48.png?v=greentech-logo">
+        <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png?v=greentech-logo">
+        <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg?v=greentech-logo">
+        <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png?v=greentech-logo">
+        <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon-167x167.png?v=greentech-logo">
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=greentech-logo">
+        <link rel="manifest" href="/icons/site.webmanifest?v=greentech-logo">
+        <link rel="mask-icon" href="/icons/safari-pinned-tab.svg?v=greentech-logo" color="#0B0B0A">
+        <meta name="application-name" content="Green Tech Real Estate">
+        <meta name="apple-mobile-web-app-title" content="GreenTech">
+        <meta name="theme-color" content="#e4e2de">
+        <meta name="msapplication-TileColor" content="#e4e2de">
+        <meta name="msapplication-TileImage" content="/icons/mstile-150x150.png?v=greentech-logo">
+        <meta name="msapplication-config" content="/icons/browserconfig.xml?v=greentech-logo">
         <title>Green Tech Real Estate | Constructii si dezvoltare imobiliara</title>
         <meta name="description" content="Green Tech Real Estate dezvolta si construieste spatii moderne, eficiente energetic si pregatite pentru viitor.">
         <meta name="robots" content="index, follow, max-image-preview:large">
         <meta property="og:title" content="Green Tech Real Estate">
         <meta property="og:type" content="website">
-        <meta property="og:image" content="/share/ogp.png">
+        <meta property="og:image" content="/share/ogp.png?v=greentech-logo">
+        <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta property="og:image:alt" content="Green Tech Real Estate">
@@ -29,7 +39,7 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Green Tech Real Estate">
         <meta name="twitter:description" content="Constructii durabile si dezvoltare imobiliara cu valoare pe termen lung.">
-        <meta name="twitter:image" content="/share/ogp.png">
+        <meta name="twitter:image" content="/share/ogp.png?v=greentech-logo">
         <meta name="twitter:image:alt" content="Green Tech Real Estate">
         <meta name="keywords" content="constructii, dezvoltare imobiliara, case, apartamente, renovari, cladiri eficiente energetic">
         <script type="module">
@@ -53,7 +63,12 @@
                 "name": "Green Tech Real Estate",
                 "legalName": "Green Tech Real Estate",
                 "url": "/",
-                "logo": "/favicon.svg",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "/icons/web-app-manifest-512x512.png?v=greentech-logo",
+                    "width": 512,
+                    "height": 512
+                },
                 "description": "Constructii durabile si dezvoltare imobiliara cu valoare pe termen lung.",
                 "contactPoint": {
                     "@type": "ContactPoint",
@@ -87,13 +102,45 @@
         <link rel="stylesheet" href="/_astro/apply.B-bC7KCE.css">
         <style>
             #root { display: contents; }
+            #greentech-boot { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; padding: 24px; background: #e4e2de; color: #252a23; font-family: Arial, sans-serif; }
+            #greentech-boot > div { width: min(360px, 100%); text-align: center; }
+            #greentech-boot img { display: block; width: min(260px, 76%); height: auto; margin: 0 auto 48px; }
+            .gt-boot-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; font-size: 11px; }
+            .gt-boot-row strong { font-size: 25px; font-weight: 500; font-variant-numeric: tabular-nums; }
+            .gt-boot-row small { padding-left: 3px; font-size: 13px; }
+            .gt-boot-track { height: 3px; background: #252a2324; }
+            #greentech-boot p { margin: 18px 0 0; color: #54584e; font-size: 12px; line-height: 1.65; }
+            #greentech-boot button { min-height: 44px; margin-top: 18px; padding: 8px; color: inherit; border: 0; background: transparent; text-decoration: underline; cursor: pointer; }
+            @media(max-width:540px) { #greentech-boot > div { width: min(320px, 100%); } #greentech-boot img { width: 230px; max-width: 80%; margin-bottom: 40px; } }
             .header__logo .logo, .mobile-nav__logo .logo, .footer__logo { display: none; }
             .brand-name { font-weight: 700; letter-spacing: -.03em; white-space: nowrap; }
             .footer__brand { color: #fcfcfc; font-size: clamp(18px, 2vw, 30px); }
         </style>
         </head>
     <body style="background-color: #E4E2DE; overflow: hidden;" data-astro-cid-5hce7sga>
-        <div id="root"></div>
+        <div id="root">
+            <div id="greentech-boot" aria-label="Încărcare Green Tech Real Estate">
+                <div>
+                    <img src="/img/greentech-logo.svg" alt="Green Tech Real Estate" width="282" height="38" fetchpriority="high">
+                    <div role="progressbar" aria-label="Progresul încărcării website-ului" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <div class="gt-boot-row"><span>Pregătim experiența</span><strong>00<small>%</small></strong></div>
+                        <div class="gt-boot-track"></div>
+                    </div>
+                    <p id="gt-boot-status">Se încarcă website-ul</p>
+                    <button id="gt-boot-retry" type="button" hidden>Reîncarcă pagina</button>
+                    <noscript><p>Activează JavaScript pentru a vizualiza website-ul.</p></noscript>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('gt-boot-retry').addEventListener('click', function() { location.reload(); });
+            setTimeout(function() {
+                var status = document.getElementById('gt-boot-status');
+                if (!status) return;
+                status.textContent = 'Încărcarea durează mai mult. Poți reîncărca pagina.';
+                document.getElementById('gt-boot-retry').hidden = false;
+            }, 20000);
+        </script>
         
         <script type="module" src="/src/main.jsx"></script>
     </body>

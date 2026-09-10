@@ -1,0 +1,57 @@
+#loader.gt-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  padding: 24px;
+  overflow: auto;
+  background: #e4e2de;
+  color: #252a23;
+  opacity: 1;
+  transform: none;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: opacity 450ms ease;
+}
+#loader.gt-loader.hide { opacity: 0; pointer-events: none; }
+.gt-loader__content { width: min(360px, 100%); margin: auto; text-align: center; }
+.gt-loader__logo { display: block; width: min(260px, 76%); height: auto; margin: 0 auto 48px; }
+.gt-loader__progress { width: 100%; }
+.gt-loader__row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.gt-loader__row > span { font-size: 11px; letter-spacing: .035em; }
+.gt-loader__row strong { font-size: 25px; font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums; }
+.gt-loader__row small { padding-left: 3px; font-size: 13px; }
+.gt-loader__track { height: 3px; overflow: hidden; background: #252a2324; }
+.gt-loader__track > span { display: block; height: 100%; width: 100%; background: #aa9060; transform-origin: left; transition: transform 180ms ease-out; }
+.gt-loader__status { min-height: 38px; margin: 18px 0 0; color: #54584e; font-size: 12px; line-height: 1.65; }
+.gt-loader__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-top: 18px; }
+.gt-loader__actions button { min-height: 44px; padding: 8px 4px; border: 0; background: transparent; color: #252a23; font: inherit; font-size: 13px; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.gt-loader__actions button:focus-visible { outline: 2px solid #806839; outline-offset: 4px; }
+.gt-loader__signal { position: absolute; opacity: 0; pointer-events: none; }
+#loader.gt-loader .arrow-mask-line { animation: draw-line 350ms linear forwards; }
+.gt-scene-fallback .hero__title,
+.gt-scene-fallback .hero__subtitle,
+.gt-scene-fallback .hero .blur-text-segment,
+.gt-scene-fallback .hsbtn-in { opacity: 1 !important; transform: none !important; filter: none !important; }
+.gt-scene-fallback #app { display: none !important; }
+.gt-scene-fallback .hero-spacer { display: none; }
+.gt-scene-fallback .hero { position: relative; height: auto; min-height: 0; padding-bottom: 48px; pointer-events: auto; }
+.gt-scene-fallback .hero .hero__scroll-btn { position: static; inset: auto; transform: none; margin-top: 32px; }
+.gt-scene-fallback .flow { height: auto; }
+.gt-scene-fallback .flow__wrapper { position: relative; height: auto; }
+.gt-scene-fallback .flow__steps { width: 100%; gap: 28px; }
+.gt-scene-fallback .flow__title { transform: none; }
+.gt-scene-fallback .flow__body { grid-template-rows: var(--space-lg) 1fr; }
+.gt-scene-fallback .flow__description { opacity: 1; transform: none; }
+@media (max-width: 540px) {
+  .gt-loader__content { width: min(320px, 100%); }
+  .gt-loader__logo { width: 230px; max-width: 80%; margin-bottom: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #loader.gt-loader, .gt-loader__track > span { transition: none; }
+  #loader.gt-loader .arrow-mask-line { animation-duration: 1ms; }
+}

@@ -11,13 +11,13 @@ export const project = {
   updatedAt: null,
   cover: null,
   before: {
-    src: '/img/a2e4a6fa-cc06-4205-a3c5-4a234d3b6713.png',
+    src: '/img/a2e4a6fa-cc06-4205-a3c5-4a234d3b6713.webp',
     alt: 'Teren liber între două clădiri, văzut dinspre stradă, în spatele gardului de șantier.',
     caption: '',
     width: 1672, height: 941,
   },
   current: {
-    src: '/img/01ace805-8f36-44ba-a05b-b76f1fd5441e.png',
+    src: '/img/01ace805-8f36-44ba-a05b-b76f1fd5441e.webp',
     alt: 'Construcție cu structură de beton și zidărie, văzută din același unghi, între aceleași clădiri.',
     caption: '',
     width: 1672, height: 941,
@@ -25,37 +25,37 @@ export const project = {
   phases: [
     {
       id: 'site', title: 'Terenul', label: 'The beginning', status: null,
-      image: { src: '/img/teren.png', alt: 'Echipă cu planuri pe un teren delimitat prin repere de trasare.', width: 1536, height: 1024 },
+      image: { src: '/img/teren.webp', alt: 'Echipă cu planuri pe un teren delimitat prin repere de trasare.', width: 1536, height: 1024 },
       note: 'Totul începe cu locul: înțelegerea terenului, măsurători și primele repere ale viitoarei construcții.',
     },
     {
       id: 'foundation', title: 'Fundația', label: 'Foundation', status: null,
-      image: { src: '/img/fundatie.jpg', alt: 'Pregătirea fundației, cu săpături, armături și cofraje.', width: 1024, height: 682 },
+      image: { src: '/img/fundatie.webp', alt: 'Pregătirea fundației, cu săpături, armături și cofraje.', width: 1024, height: 682 },
       note: 'De la trasare la săpături, armare și cofrare. Baza construcției prinde contur, pas cu pas.',
     },
     {
       id: 'structure', title: 'Structura', label: 'Structure', status: null,
-      image: { src: '/img/e58918db-5281-4261-b5ec-66bff22ea02b.png', alt: 'Elemente de beton la baza construcției, cofraje și verificarea nivelului.', width: 1536, height: 1024 },
+      image: { src: '/img/e58918db-5281-4261-b5ec-66bff22ea02b.webp', alt: 'Elemente de beton la baza construcției, cofraje și verificarea nivelului.', width: 1536, height: 1024 },
       note: 'Primele elemente din beton definesc baza structurii. Planurile și verificările însoțesc fiecare etapă de execuție.',
     },
     {
       id: 'masonry', title: 'Zidăria', label: 'Masonry', status: null,
-      image: { src: '/img/72a9befa-7b0f-4b87-86d5-dae5d437fc8b.png', alt: 'Vedere de ansamblu asupra unui șantier, cu structură de beton și pereți de zidărie.', width: 1408, height: 768 },
+      image: { src: '/img/72a9befa-7b0f-4b87-86d5-dae5d437fc8b.webp', alt: 'Vedere de ansamblu asupra unui șantier, cu structură de beton și pereți de zidărie.', width: 1408, height: 768 },
       note: 'Pereții conturează încăperile și relația dintre spații. Construcția capătă volum, proporții și o formă recognoscibilă.',
     },
     {
       id: 'installations', title: 'Instalațiile', label: 'Installations', status: null,
-      image: { src: '/img/instalatie.png', alt: 'Lucrări la tubulatură, conducte și trasee de cabluri într-un interior nefinisat.', width: 1536, height: 1024 },
+      image: { src: '/img/instalatie.webp', alt: 'Lucrări la tubulatură, conducte și trasee de cabluri într-un interior nefinisat.', width: 1536, height: 1024 },
       note: 'Traseele tehnice sunt integrate în construcție. Instalațiile pregătesc spațiile pentru funcționarea de zi cu zi.',
     },
     {
       id: 'interiors', title: 'Interioare', label: 'Interior works', status: null,
-      image: { src: '/img/instalatie.png', alt: 'Spațiu interior în lucru, cu materiale și instalații vizibile înaintea finisajelor.', width: 1536, height: 1024 },
+      image: { src: '/img/instalatie.webp', alt: 'Spațiu interior în lucru, cu materiale și instalații vizibile înaintea finisajelor.', width: 1536, height: 1024 },
       note: 'De la interiorul încă nefinisat la suprafețe, finisaje și detalii. Spațiile sunt pregătite pentru următoarea etapă a amenajării.',
     },
     {
       id: 'completion', title: 'Predarea', label: 'Completion', status: null,
-      image: { src: '/img/ChatGPT Image Sep 9, 2026, 10_05_37 AM.png', alt: 'Scenă de predare a cheilor în fața unei clădiri rezidențiale.', width: 1536, height: 1024 },
+      image: { src: '/img/ChatGPT Image Sep 9, 2026, 10_05_37 AM.webp', alt: 'Scenă de predare a cheilor în fața unei clădiri rezidențiale.', width: 1536, height: 1024 },
       note: 'Verificările finale, documentele și predarea cheilor încheie parcursul construcției și deschid un nou început.',
     },
   ],

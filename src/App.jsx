@@ -4,6 +4,8 @@ import Main from './components/Main.jsx';
 import Footer from './components/Footer.jsx';
 import Loader from './components/Loader.jsx';
 import SmoothScroll from './components/effects/SmoothScroll.jsx';
+import { startSiteLoading, sceneLoadingError } from './lib/site-loading';
+import { project } from './data/project';
 
 // The 3D scene, smooth-scroll, page transitions, FAQ accordion and loader
 // animation all live in the original compiled engine (CommonScripts -> renderer + vendor).
@@ -19,17 +21,15 @@ export default function App() {
     window.__vectrSceneBooted = true;
 
     const canBootWebGpuScene = window.isSecureContext || LOCAL_HOSTS.has(window.location.hostname);
+    startSiteLoading({ sceneEnabled: canBootWebGpuScene, extraImages: project.phases.map(phase => phase.image?.src) });
     if (!canBootWebGpuScene) {
-      document.body.style.overflow = '';
-      document.querySelector('header')?.classList.add('show');
-      document.querySelector('.hero')?.classList.add('show');
-      document.getElementById('loader')?.remove();
       return;
     }
 
     const s = document.createElement('script');
     s.type = 'module';
     s.src = SCENE_SRC;
+    s.onerror = sceneLoadingError;
     document.body.appendChild(s);
   }, []);
 

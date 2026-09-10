@@ -233,7 +233,7 @@ function BlueprintDrawing() {
       data-craft-entrance
     >
       <div className="gt-craft__blueprint-label">
-        <span>Structure study</span>
+        <span>Studiu de structura</span>
       </div>
 
       <svg

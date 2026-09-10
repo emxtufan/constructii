@@ -217,9 +217,9 @@ export function CinematicFooter() {
         <div className="gt-cinematic-footer__grid" aria-hidden="true" />
         <div className="gt-cinematic-footer__giant" aria-hidden="true"><span ref={giantRef}>GREENTECH</span></div>
 
-        <div className="gt-cinematic-footer__marquee" aria-hidden="true">
+        {/* <div className="gt-cinematic-footer__marquee" aria-hidden="true">
           <div className="gt-cinematic-footer__marquee-track"><MarqueeItem /><MarqueeItem /></div>
-        </div>
+        </div> */}
 
         <div className="gt-cinematic-footer__content">
           <img className="gt-cinematic-footer__logo" src="/img/greentech-logo-light.svg" alt="Green Tech Real Estate" width="282" height="38" loading="lazy" />
@@ -241,7 +241,8 @@ export function CinematicFooter() {
 
         <div className="gt-cinematic-footer__bottom">
           <div className="gt-cinematic-footer__legal-row">
-            <p>© {new Date().getFullYear()} Esa Coder Solutions</p>
+            
+            <p>© {new Date().getFullYear()} <a href="https://esa-coder-solutions.com/" target="_blank" rel="noopener noreferrer" aria-label="Esa Coder Solutions">Esa Coder Solutions</a></p>
             <nav className="gt-cinematic-footer__legal-links" aria-label="Informații legale">
               {legalPolicies.map(policy => (
                 <button key={policy.id} type="button" aria-haspopup="dialog" onClick={() => setActivePolicy(policy)}>{policy.label}</button>

@@ -66,24 +66,6 @@ header .header__logo {
   display: inline-block;
 }
 
-#loader .loader__brand-logo {
-  width: clamp(180px, 28vw, 320px) !important;
-  height: auto !important;
-  aspect-ratio: 585 / 360;
-  animation-name: fade-in !important;
-  transform: none !important;
-}
-
-#loader.hide .loader__brand-logo {
-  animation: fade-out .2s ease forwards !important;
-}
-
-@media (max-width: 820px) {
-  #loader .loader__brand-logo {
-    width: 180px !important;
-  }
-}
-
 .logos-section {
   width: 100%;
   background: var(--color-bg);

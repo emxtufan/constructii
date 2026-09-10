@@ -6,7 +6,7 @@ export default function StandardsSection({ project }) {
       <div className="standards__container">
         <div className="standards__image">
           <picture>
-            <img src={project?.cover?.src || '/img/standards-project.png'} alt={project?.cover?.alt || 'Ilustrație conceptuală de arhitectură și execuție'} loading="lazy" decoding="async" sizes="(max-width: 820px) 100vw, 800px" width="800" height="400" />
+            <img src={project?.cover?.src || '/img/standards-project.webp'} alt={project?.cover?.alt || 'Ilustrație conceptuală de arhitectură și execuție'} loading="lazy" decoding="async" sizes="(max-width: 820px) 100vw, 800px" width="800" height="400" />
           </picture>
           <p className="project-intro__caption">{project?.cover?.caption || (project?.cover?.src ? 'Proiectul Green Tech' : 'Ilustrație conceptuală · nu reprezintă stadiul real al șantierului')}</p>
         </div>

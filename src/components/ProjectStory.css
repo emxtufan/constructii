@@ -82,6 +82,7 @@
 .build-compare__before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--compare-position)) 0 0); }
 .build-compare__divider { position: absolute; top: 0; bottom: 0; left: var(--compare-position); width: 2px; background: #fff; transform: translateX(-50%); pointer-events: none; }
 .build-compare__divider > span { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: #f5f3ec; color: #20251f; transform: translate(-50%,-50%); font-size: 22px; box-shadow: 0 2px 12px #0003; }
+.build-compare__divider img { display: block; width: 28px; height: 28px; object-fit: contain; }
 .build-compare__label { position: absolute; top: 20px; padding: 8px 12px; background: #20251fe6; color: #f5f3ec; font-size: 11px; letter-spacing: .04em; }
 .build-compare__label--before { left: 20px; }
 .build-compare__label--current { right: 20px; }
