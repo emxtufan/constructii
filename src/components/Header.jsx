@@ -20,7 +20,7 @@ const sectionLabels = {
   'final-statement': 'Viziunea noastră',
   'site-footer': 'Să construim împreună',
 };
-const primarySections = new Set(['#servicii', '#proiecte', '#de-ce-noi']);
+const primarySections = new Set(['#servicii', '#proiecte', '#de-ce-noi', '#contact']);
 const desktopQuery = '(min-width: 901px)';
 
 function getPageLinks() {
@@ -214,12 +214,15 @@ export default function Header() {
       >
         <div className="gt-nav-bar">
           <a className="gt-nav-brand" href="#acasa" onClick={navigate} aria-label="Green Tech Real Estate — Acasă" aria-current={activeSection === '#acasa' ? 'location' : undefined}>
-            <img src="/img/greentech-logo-light.svg" alt="Green Tech Real Estate" width="282" height="38" />
+            <picture>
+              <source media="(max-width: 900px)" srcSet="/img/logo-mobile.png" width="390" height="46" />
+              <img src="/img/logo-png-pc.png" alt="Green Tech Real Estate" width="396" height="59" />
+            </picture>
           </a>
           <nav className="gt-nav-desktop" aria-label="Navigare principală">
             {links.filter(link => primarySections.has(link.href)).map(link => (
               <a key={link.href} href={link.href} onClick={navigate} aria-current={activeSection === link.href ? 'location' : undefined}>
-                {link.label}
+                {link.href === '#contact' ? 'Contact' : link.label}
               </a>
             ))}
           </nav>
@@ -235,9 +238,6 @@ export default function Header() {
             <span className="gt-nav-toggle__label">Meniu</span>
             <span className="gt-nav-toggle__icon" aria-hidden="true"><span /><span /></span>
           </button>
-          <a className="gt-nav-cta gt-nav-cta--desktop" href="#contact" onClick={navigate} aria-current={activeSection === '#contact' ? 'location' : undefined}>
-            Cere ofertă <ArrowIcon />
-          </a>
         </div>
         <div ref={panelRef} id="gt-mobile-menu" className="gt-nav-panel" hidden={!isOpen} data-lenis-prevent>
           <p className="gt-nav-panel__heading">Explorează pagina</p>
